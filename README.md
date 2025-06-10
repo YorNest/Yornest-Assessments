@@ -1,188 +1,137 @@
-# YorNest Technical Assessments
+# Scoop Technical Assessments
 
-Welcome to the YorNest technical assessment repository! This collection contains comprehensive coding challenges designed to evaluate web development skills across various domains.
+Welcome to the Scoop technical assessment repository! This collection contains comprehensive coding challenges designed to evaluate web development skills for our engineering team.
 
 ## 🎯 Overview
 
-This repository contains **6 specialized assessment tests** that cover the full spectrum of modern web development skills. Each test is designed to be completed within a specific timeframe and focuses on different aspects of web development.
+This repository serves as the central hub for Scoop's technical hiring process, containing **6 specialized assessment tests** that evaluate candidates across the full spectrum of modern web development. Each assessment is carefully crafted to simulate real-world scenarios that our engineers face daily.
 
-## 📋 Assessment Tests
+## 📋 Assessment Categories
 
-### [Test 1: Component Development](./web/test-1-component-development) (20 minutes)
-**Focus**: React component creation and UI implementation
-- Build responsive, accessible React components
-- Implement proper TypeScript interfaces
-- Handle user interactions and form validation
-- Create reusable component patterns
+Our assessments cover six core competency areas:
 
-### [Test 2: State Management](./web/test-2-state-management) (20 minutes)
-**Focus**: Zustand store implementation and state handling
-- Complete store functions with proper error handling
-- Implement loading states and optimistic updates
-- Connect components to global state
-- Handle complex state mutations
+### 🧩 **Component Development**
+Testing React component architecture, TypeScript proficiency, and UI implementation skills.
 
-### [Test 3: API Development](./web/test-3-api-development) (25 minutes)
-**Focus**: Next.js API routes and data fetching
-- Build RESTful API endpoints
-- Implement proper error handling and validation
-- Create efficient data fetching patterns
-- Handle authentication and authorization
+### 🔄 **State Management**
+Evaluating global state handling, data flow patterns, and state synchronization capabilities.
 
-### [Test 4: Feature Implementation](./web/test-4-feature-implementation) (30 minutes)
-**Focus**: End-to-end feature development
-- Implement complete user workflows
-- Integrate frontend and backend components
-- Handle edge cases and error scenarios
-- Optimize for performance and UX
+### 🌐 **API Development**
+Assessing backend development skills, REST API design, and data validation expertise.
 
-### [Test 5: Bug Fixes & Optimization](./web/test-5-bug-fixes-optimization) (25 minutes)
-**Focus**: Debugging and performance optimization
-- Identify and fix critical bugs
-- Optimize component rendering
-- Improve application performance
-- Implement proper error boundaries
+### ⚡ **Feature Implementation**
+Testing end-to-end development capabilities and full-stack integration skills.
 
-### [Test 6: WebSocket Real-time Features](./web/test-6-websocket-realtime) (35 minutes)
-**Focus**: Real-time communication and live updates
-- Implement WebSocket connections
-- Handle real-time data synchronization
-- Manage connection states and reconnection
-- Build live collaborative features
+### 🐛 **Bug Fixes & Optimization**
+Evaluating debugging skills, performance optimization, and code quality improvement.
+
+### 🔴 **Real-time Features**
+Testing WebSocket implementation, concurrent data handling, and live collaboration features.
+
+> **📁 For detailed test descriptions and instructions, see [Web Assessments](./web/README.md)**
 
 ## 🛠 Technology Stack
 
-All assessments are built using modern web technologies:
+Our assessments utilize Scoop's core technology stack:
 
 - **Frontend**: React 18, Next.js 13+, TypeScript
 - **State Management**: Zustand
-- **Styling**: CSS Modules, Tailwind CSS
+- **Styling**: Chakra UI, CSS Modules
 - **Testing**: Jest, React Testing Library
 - **API**: Next.js API Routes
 - **Real-time**: WebSocket, Socket.io
-- **Tools**: ESLint, Prettier, Husky
+- **Tools**: ESLint, Prettier
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 16+ and npm/yarn
-- Git
-- Code editor (VS Code recommended)
+## 🚀 Quick Start
 
 ### For Candidates
 
-1. **Clone the repository**:
+1. **Clone this repository**:
    ```bash
    git clone https://github.com/YorNest/Yornest-Assessments.git
    cd Yornest-Assessments
    ```
 
-2. **Choose your assigned test**:
+2. **Navigate to your assigned test**:
    ```bash
-   cd web/test-[number]-[name]
+   cd web/test-[assigned-number]
    ```
 
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+3. **Follow the setup instructions** in that test's README
 
-4. **Start development server**:
-   ```bash
-   npm run dev
-   ```
+### For Hiring Team
 
-5. **Open in browser**: http://localhost:3000
+Each assessment is self-contained and includes:
+- Complete project setup with dependencies
+- Detailed evaluation criteria and rubrics
+- Sample solutions and common pitfalls
+- Time management guidelines
 
-6. **Read the README** in your test directory for specific instructions
+## 📊 How We Evaluate
 
-### For Evaluators
+Our assessment process focuses on real-world engineering skills:
 
-Each test directory contains:
-- `README.md` - Detailed instructions and evaluation criteria
-- Complete Next.js application setup
-- Pre-configured testing environment
-- Sample data and utilities
-- Evaluation rubrics and scoring guidelines
+### 🎯 **Core Competencies**
+- **Technical Execution** - Clean, working code that meets requirements
+- **Problem Solving** - Thoughtful approach to challenges and edge cases
+- **Code Quality** - Readable, maintainable, and well-structured solutions
+- **User Experience** - Consideration for end-user needs and accessibility
 
-## 📊 Evaluation Criteria
+### ⏱️ **Assessment Process**
+- **Time-boxed** - Each test has a specific duration (20-35 minutes)
+- **Focused** - Tests target specific skill areas relevant to the role
+- **Practical** - Based on real scenarios from Scoop's codebase
+- **Fair** - Consistent evaluation criteria across all candidates
 
-Each assessment is evaluated across multiple dimensions:
+## 🎯 Success Tips
 
-### Technical Skills (40%)
-- Code quality and organization
-- TypeScript usage and type safety
-- React best practices
-- Performance considerations
+### For Candidates
+- **Read instructions carefully** - Each test has specific requirements
+- **Focus on functionality first** - Get it working, then optimize
+- **Ask questions** - Clarify requirements if anything is unclear
+- **Manage your time** - Prioritize core features over polish
+- **Document your approach** - Explain your thinking in comments
 
-### Problem Solving (30%)
-- Approach to requirements
-- Handling of edge cases
-- Error handling and validation
-- Code efficiency
-
-### User Experience (20%)
-- Interface design and usability
-- Accessibility considerations
-- Responsive design
-- Loading states and feedback
-
-### Code Quality (10%)
-- Clean, readable code
-- Proper commenting
-- Consistent formatting
-- Git commit practices
-
-## 🎯 Assessment Guidelines
-
-### Time Management
-- Each test has a recommended time limit
-- Focus on core functionality first
-- Polish and optimization come second
-- Document any incomplete features
-
-### Submission Process
-1. Complete the assigned test
-2. Commit your changes with clear messages
-3. Push to your fork or submit as instructed
-4. Include a brief summary of your approach
-
-### Best Practices
-- Write clean, maintainable code
-- Add comments for complex logic
-- Handle errors gracefully
-- Test your implementation thoroughly
-- Consider accessibility and performance
+### For Interviewers
+- **Focus on process** - How they approach problems matters
+- **Discuss trade-offs** - Ask about alternative solutions
+- **Review error handling** - How do they handle edge cases?
+- **Assess scalability** - How would they extend their solution?
 
 ## 📁 Repository Structure
 
 ```
-├── README.md                          # This file
+├── README.md                          # Repository overview (this file)
 ├── .gitignore                         # Git ignore patterns
 └── web/                              # Web development assessments
-    ├── README.md                     # Web assessments overview
-    ├── test-1-component-development/ # React components
-    ├── test-2-state-management/      # Zustand store
-    ├── test-3-api-development/       # API routes
-    ├── test-4-feature-implementation/ # Full features
-    ├── test-5-bug-fixes-optimization/ # Debugging
-    └── test-6-websocket-realtime/    # Real-time features
+    ├── README.md                     # Detailed test descriptions
+    ├── test-1-component-development/ # React component skills
+    ├── test-2-state-management/      # State handling patterns
+    ├── test-3-api-development/       # Backend API development
+    ├── test-4-feature-implementation/ # Full-stack features
+    ├── test-5-bug-fixes-optimization/ # Debugging & performance
+    └── test-6-websocket-realtime/    # Real-time functionality
 ```
 
-## 🤝 Contributing
+## 🤝 Support
 
-This repository is maintained by the YorNest team. For questions or issues:
+This repository is maintained by the Scoop engineering team.
 
-- Create an issue in this repository
-- Contact the hiring team
-- Refer to individual test READMEs for specific guidance
+**For Candidates:**
+- Read the specific test README for detailed instructions
+- Ask your interviewer if you have questions during the assessment
+- Focus on demonstrating your problem-solving approach
+
+**For Hiring Team:**
+- Each test includes evaluation guidelines and rubrics
+- Contact the engineering team for assessment updates or questions
 
 ## 📄 License
 
-This repository is proprietary and confidential. All rights reserved by YorNest.
+This repository is proprietary and confidential. All rights reserved by Scoop.
 
 ---
 
-**Good luck with your assessment!** 🚀
+**Ready to show us what you can build?** 🚀
 
-Remember: We're not just looking for working code, but for thoughtful solutions that demonstrate your understanding of modern web development principles.
+At Scoop, we value engineers who write thoughtful, maintainable code and can tackle real-world challenges. These assessments are designed to give you a chance to demonstrate exactly that.

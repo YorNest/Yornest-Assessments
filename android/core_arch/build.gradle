@@ -1,0 +1,18 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation project(":core_base")
+    implementation project(":core_navigation")
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesAndroidVersion"
+
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
+}
+
+android {
+    namespace 'com.yornest.core_arch'
+}

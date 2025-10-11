@@ -1,0 +1,9 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+}
+
+android {
+    namespace 'com.yornest.logger'
+}

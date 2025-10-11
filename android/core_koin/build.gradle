@@ -1,0 +1,19 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+
+    implementation project(":core_arch")
+    implementation project(":core_navigation")
+    implementation project(":core_base")
+
+    //koin
+    api "io.insert-koin:koin-android:$koinVersion"
+    api "io.insert-koin:koin-androidx-workmanager:$koinVersion"
+
+    //multidex
+    api "androidx.multidex:multidex:$xMultidex"
+}
+
+android {
+    namespace 'com.yornest.core_koin'
+}

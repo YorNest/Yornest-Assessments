@@ -1,0 +1,19 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesAndroidVersion"
+
+    implementation "androidx.exifinterface:exifinterface:$xExif"
+
+    api "androidx.appcompat:appcompat:$xVersion"
+    api "androidx.fragment:fragment-ktx:$xFragment"
+    api "com.google.android.material:material:$xMaterial"
+    api "androidx.core:core-ktx:$kotlixExtVersion"
+}
+
+android {
+    namespace 'com.yornest.core_base'
+}

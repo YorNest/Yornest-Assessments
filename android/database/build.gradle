@@ -1,0 +1,20 @@
+apply from: '../androidModule.gradle'
+
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation project(":domain")
+
+    implementation "androidx.core:core-ktx:$kotlixExtVersion"
+
+    //room
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    //serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+}
+
+android {
+    namespace 'com.yornest.database'
+}

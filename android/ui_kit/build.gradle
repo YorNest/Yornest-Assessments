@@ -1,0 +1,14 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation project(":core_base")
+    
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    
+    api "androidx.recyclerview:recyclerview:1.3.2"
+    api "androidx.cardview:cardview:1.0.0"
+}
+
+android {
+    namespace 'com.yornest.ui_kit'
+}

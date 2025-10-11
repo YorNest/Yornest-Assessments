@@ -1,0 +1,5 @@
+apply from: '../androidInteractorModule.gradle'
+
+android {
+    namespace 'com.yornest.i_messages'
+}

@@ -1,0 +1,23 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+
+    implementation project(":domain")
+    implementation project(":core_base")
+    implementation project(":logger")
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "androidx.core:core-ktx:$kotlixExtVersion"
+
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$loggingVersion"
+    api "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitSerializationVersion"
+
+    //serialization
+    api "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+}
+
+android {
+    namespace 'com.yornest.network'
+}

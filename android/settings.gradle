@@ -1,0 +1,12 @@
+rootProject.name = "YorNest Assessment"
+include ':app',
+        ':core_navigation',
+        ':core_base',
+        ':core_arch',
+        ':core_koin',
+        ':domain',
+        ':network',
+        ':ui_kit',
+        ':database',
+        ':logger',
+        ':i_messages'

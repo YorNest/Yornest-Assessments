@@ -1,0 +1,12 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    
+    //cicerone
+    api "com.github.terrakok:cicerone:$ciceroneVersion"
+}
+
+android {
+    namespace 'com.yornest.core_navigation'
+}

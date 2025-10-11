@@ -1,0 +1,11 @@
+# This file contains the path of the Android SDK.
+# Copy this file to local.properties and update the sdk.dir path
+# to match your Android SDK installation.
+
+sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+
+# Or on Windows:
+# sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk
+
+# Or on Linux:
+# sdk.dir=/home/YOUR_USERNAME/Android/Sdk

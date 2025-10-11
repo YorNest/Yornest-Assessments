@@ -1,0 +1,10 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+}
+
+android {
+    namespace 'com.yornest.domain'
+}

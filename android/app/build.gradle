@@ -1,0 +1,109 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+}
+
+apply from: '../config.gradle'
+
+android {
+    namespace 'com.yornest.assessment'
+
+    compileSdk project.compileSdk
+
+    defaultConfig {
+        applicationId project.appId
+        minSdkVersion project.minSdk
+        targetSdkVersion project.targetSdk
+        versionCode project.vCode
+        versionName project.vName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "BaseApiUrl", '"https://your-backend-url.com/"'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            buildConfigField "String", "BaseApiUrl", '"https://your-backend-url.com/"'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        develop {
+            dimension "version"
+            applicationIdSuffix ".develop"
+        }
+        production {
+            dimension "version"
+        }
+    }
+}
+
+dependencies {
+
+    //modules
+    implementation project(":ui_kit")
+    implementation project(":core_navigation")
+    implementation project(":core_base")
+    implementation project(":core_arch")
+    implementation project(":core_koin")
+    implementation project(":domain")
+    implementation project(":network")
+    implementation project(":database")
+    implementation project(":logger")
+    implementation project(":i_messages")
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    //app compat
+    implementation "androidx.constraintlayout:constraintlayout:$xConstraint"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    //work manager
+    implementation "androidx.work:work-runtime-ktx:$workManagerVersion"
+
+    //coil
+    implementation "io.coil-kt:coil:$coilVersion"
+
+    //app startup
+    implementation "androidx.startup:startup-runtime:$appStartupVersion"
+
+    //core library desugaring
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$jdkDesugarVersion"
+
+    //testing
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

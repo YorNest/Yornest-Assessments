@@ -1,0 +1,11 @@
+apply from: '../androidModule.gradle'
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":core_base")
+    implementation project(":network")
+    implementation project(":logger")
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+    implementation "androidx.core:core-ktx:$kotlixExtVersion"
+}

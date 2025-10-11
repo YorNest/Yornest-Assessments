@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.yornest.assessment.databinding.ItemMessageBinding
+import com.yornest.scooplite.databinding.ItemMessageBinding
 import com.yornest.domain.message.MessageInfo
 import java.text.SimpleDateFormat
 import java.util.*

@@ -1,7 +1,7 @@
 ext {
 
-    applicationName = "YorNest Assessment"
-    appId = "com.yornest.assessment"
+    applicationName = "ScoopLite"
+    appId = "com.yornest.scooplite"
     compileSdk = 34
     minSdk = 24
     targetSdk = 34

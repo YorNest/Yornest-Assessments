@@ -8,7 +8,7 @@ plugins {
 apply from: '../config.gradle'
 
 android {
-    namespace 'com.yornest.assessment'
+    namespace 'com.yornest.scooplite'
 
     compileSdk project.compileSdk
 

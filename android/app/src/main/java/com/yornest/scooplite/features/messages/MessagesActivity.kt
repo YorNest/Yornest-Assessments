@@ -5,7 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yornest.assessment.databinding.ActivityMessagesBinding
+import com.yornest.scooplite.databinding.ActivityMessagesBinding
 import com.yornest.core_arch.vm.LoadingState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

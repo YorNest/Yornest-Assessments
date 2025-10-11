@@ -1,4 +1,4 @@
-rootProject.name = "YorNest Assessment"
+rootProject.name = "ScoopLite"
 include ':app',
         ':core_navigation',
         ':core_base',

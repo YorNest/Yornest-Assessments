@@ -38,6 +38,9 @@ ext {
     loggingVersion = '4.10.0'
     retrofitSerializationVersion = "0.8.0"
 
+    //websocket
+    webSocketVersion = '4.10.0'
+
     //koin
     koinVersion = '3.2.0'
 

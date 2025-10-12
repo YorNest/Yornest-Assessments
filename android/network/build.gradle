@@ -16,6 +16,9 @@ dependencies {
 
     //serialization
     api "org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion"
+
+    //websocket
+    api "com.squareup.okhttp3:okhttp:$webSocketVersion"
 }
 
 android {

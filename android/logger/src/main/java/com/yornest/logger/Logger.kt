@@ -1,5 +1,27 @@
 package com.yornest.logger
 
+import android.util.Log
+
+/**
+ * AppLogger object that matches the pattern used in the main YorNest app
+ */
+object AppLogger {
+
+    private const val DEFAULT_TAG = "SCOOPLITE"
+
+    fun logD(message: String, tag: String = DEFAULT_TAG) {
+        Log.d(tag, message)
+    }
+
+    fun logE(message: String, tag: String = DEFAULT_TAG) {
+        Log.e(tag, message)
+    }
+
+    fun logE(message: String, throwable: Throwable, tag: String = DEFAULT_TAG) {
+        Log.e(tag, message, throwable)
+    }
+}
+
 /**
  * Simple logger interface
  * Matches the pattern used in the main YorNest app

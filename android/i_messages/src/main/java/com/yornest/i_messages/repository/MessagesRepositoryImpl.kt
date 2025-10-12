@@ -4,12 +4,20 @@ import com.yornest.core_base.coroutines.RequestResult
 import com.yornest.domain.message.MessageInfo
 import com.yornest.domain.message.MessagesListInfo
 import com.yornest.i_messages.api.MessagesApi
+import com.yornest.i_messages.api.request.SubscribeToMessagesChangesRequest
+import com.yornest.i_messages.api.request.UnsubscribeMessagesChangesRequest
+import com.yornest.i_messages.api.response.MessageResponseObj
+import com.yornest.i_messages.data.MessageChangesInfo
 import com.yornest.network.result_handler.RequestResultHandler
+import com.yornest.network.socket.api.SocketManager
+import com.yornest.network.socket.api.data.SocketMessageRequestWrapper
 import com.yornest.network.use_case.request.RequestData
 import com.yornest.network.use_case.request.RequestType
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
 
 /**
  * Repository implementation for messages
@@ -17,7 +25,8 @@ import kotlinx.coroutines.flow.flow
  */
 class MessagesRepositoryImpl(
     private val api: MessagesApi,
-    private val requestResultHandler: RequestResultHandler
+    private val requestResultHandler: RequestResultHandler,
+    private val socketManager: SocketManager
 ) : MessagesRepository {
     
     private val cachedMessages = mutableListOf<MessageInfo>()
@@ -87,5 +96,40 @@ class MessagesRepositoryImpl(
             
             emit(result.map { RequestData(it, isFromCache = false) })
         }
+    }
+
+    override suspend fun subscribeToMessagesChanges(
+        userId: String,
+        channelId: String?
+    ): Flow<RequestResult<List<MessageChangesInfo>>> {
+        val request = SocketMessageRequestWrapper(
+            SubscribeToMessagesChangesRequest(
+                userId = userId,
+                channelId = channelId
+            ),
+            UnsubscribeMessagesChangesRequest(
+                userId = userId,
+                channelId = channelId
+            )
+        )
+
+        return socketManager
+            .subscribeNotNull(
+                request,
+                MessageResponseObj::class
+            )
+            .map { socketResponse ->
+                RequestResult.Success(
+                    listOf(
+                        MessageChangesInfo(
+                            message = socketResponse.dataNotNull.transform(),
+                            changeType = socketResponse.changesType
+                        )
+                    )
+                )
+            }
+            .onCompletion {
+                socketManager.unsubscribe(request)
+            }
     }
 }

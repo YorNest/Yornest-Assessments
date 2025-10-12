@@ -8,6 +8,10 @@ dependencies {
 
     implementation "androidx.exifinterface:exifinterface:$xExif"
 
+    // Lifecycle dependencies for ProcessLifecycleListenerDelegate
+    api "androidx.lifecycle:lifecycle-process:2.6.2"
+    api "androidx.lifecycle:lifecycle-common-java8:2.6.2"
+
     api "androidx.appcompat:appcompat:$xVersion"
     api "androidx.fragment:fragment-ktx:$xFragment"
     api "com.google.android.material:material:$xMaterial"

@@ -14,7 +14,8 @@ val messagesInteractorModule = module {
     single<MessagesRepository> {
         MessagesRepositoryImpl(
             api = get(),
-            requestResultHandler = get()
+            requestResultHandler = get(),
+            socketManager = get()
         )
     }
 

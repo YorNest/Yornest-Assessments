@@ -1,5 +1,6 @@
 package com.yornest.scooplite.di
 
+import com.yornest.scooplite.di.core.appCommonModule
 import com.yornest.scooplite.di.core.networkModule
 import com.yornest.scooplite.di.interactors.messagesInteractorModule
 import com.yornest.scooplite.features.messages.messagesModule
@@ -21,6 +22,7 @@ private val coreModules: List<Module> = listOf(
     navigationModule,
     coreVmDependenciesModule,
     networkModule,
+    appCommonModule,
 )
 
 private val interactorsModules: List<Module> = listOf(

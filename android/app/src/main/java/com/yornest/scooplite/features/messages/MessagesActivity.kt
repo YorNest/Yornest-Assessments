@@ -3,10 +3,9 @@ package com.yornest.scooplite.features.messages
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yornest.scooplite.databinding.ActivityMessagesBinding
 import com.yornest.core_arch.vm.LoadingState
+import com.yornest.scooplite.databinding.ActivityMessagesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -40,30 +39,32 @@ class MessagesActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.state.messages.observe(this, Observer { messages ->
+        viewModel.state.messages.observe(this) { messages ->
             adapter.submitList(messages)
-        })
+        }
 
-        viewModel.state.loading.observe(this, Observer { loadingState ->
+        viewModel.state.loading.observe(this) { loadingState ->
             when (loadingState) {
                 is LoadingState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.tvError.visibility = View.GONE
                 }
+
                 is LoadingState.Error -> {
                     binding.progressBar.visibility = View.GONE
                     binding.tvError.visibility = View.VISIBLE
                     binding.tvError.text = loadingState.message
                 }
+
                 is LoadingState.None -> {
                     binding.progressBar.visibility = View.GONE
                     binding.tvError.visibility = View.GONE
                 }
             }
-        })
+        }
 
-        viewModel.state.isRefreshing.observe(this, Observer { isRefreshing ->
+        viewModel.state.isRefreshing.observe(this) { isRefreshing ->
             binding.swipeRefresh.isRefreshing = isRefreshing
-        })
+        }
     }
 }

@@ -12,7 +12,9 @@ val messagesModule = module {
         MessagesViewModel(
             state = MessagesState(),
             dependencies = get(),
-            fetchMessagesUseCase = get()
+            fetchMessagesUseCase = get(),
+            createMessageUseCase = get(),
+            deleteMessageUseCase = get()
         )
     }
 }

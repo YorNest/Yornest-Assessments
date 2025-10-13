@@ -3,9 +3,13 @@ package com.yornest.scooplite.features.messages
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.yornest.core_arch.vm.LoadingState
+import com.yornest.scooplite.R
 import com.yornest.scooplite.databinding.ActivityMessagesBinding
+import com.yornest.scooplite.databinding.BottomSheetCreateMessageBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -16,6 +20,7 @@ class MessagesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMessagesBinding
     private val viewModel: MessagesViewModel by viewModel()
     private lateinit var adapter: MessagesAdapter
+    private var bottomSheetDialog: BottomSheetDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,10 @@ class MessagesActivity : AppCompatActivity() {
 
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.refresh()
+        }
+
+        binding.fabCreateMessage.setOnClickListener {
+            viewModel.showDrawer()
         }
     }
 
@@ -66,5 +75,62 @@ class MessagesActivity : AppCompatActivity() {
         viewModel.state.isRefreshing.observe(this) { isRefreshing ->
             binding.swipeRefresh.isRefreshing = isRefreshing
         }
+
+        viewModel.state.isDrawerVisible.observe(this) { isVisible ->
+            if (isVisible) {
+                showCreateMessageBottomSheet()
+            } else {
+                hideCreateMessageBottomSheet()
+            }
+        }
+    }
+
+    private fun showCreateMessageBottomSheet() {
+        if (bottomSheetDialog?.isShowing == true) return
+
+        val bottomSheetBinding = BottomSheetCreateMessageBinding.inflate(layoutInflater)
+        bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog?.setContentView(bottomSheetBinding.root)
+
+        // Setup text input
+        bottomSheetBinding.etMessage.doAfterTextChanged { text ->
+            viewModel.onTextChanged(text?.toString() ?: "")
+        }
+
+        // Setup buttons
+        bottomSheetBinding.btnCancel.setOnClickListener {
+            bottomSheetDialog?.dismiss()
+        }
+
+        bottomSheetBinding.btnSubmit.setOnClickListener {
+            viewModel.submitMessage()
+        }
+
+        // Observe submission state
+        viewModel.state.isSubmitting.observe(this) { isSubmitting ->
+            bottomSheetBinding.btnSubmit.isEnabled = !isSubmitting
+            bottomSheetBinding.btnCancel.isEnabled = !isSubmitting
+            bottomSheetBinding.etMessage.isEnabled = !isSubmitting
+            bottomSheetBinding.progressBar.visibility = if (isSubmitting) View.VISIBLE else View.GONE
+        }
+
+        // Observe input text
+        viewModel.state.inputText.observe(this) { text ->
+            if (bottomSheetBinding.etMessage.text?.toString() != text) {
+                bottomSheetBinding.etMessage.setText(text)
+            }
+            bottomSheetBinding.btnSubmit.isEnabled = text.isNotBlank() && viewModel.state.isSubmitting.value != true
+        }
+
+        bottomSheetDialog?.setOnDismissListener {
+            viewModel.hideDrawer()
+        }
+
+        bottomSheetDialog?.show()
+    }
+
+    private fun hideCreateMessageBottomSheet() {
+        bottomSheetDialog?.dismiss()
+        bottomSheetDialog = null
     }
 }

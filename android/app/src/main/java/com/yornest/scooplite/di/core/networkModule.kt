@@ -13,6 +13,7 @@ import com.yornest.network.socket.impl.DefaultSocketManager
 import com.yornest.network.socket.impl.DefaultSocketReconnectHandler
 import com.yornest.network.socket.SocketProcessLifecycleListenerDelegate
 import com.yornest.core_base.lifecycle.process.ProcessLifecycleListenerDelegate
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
 import okhttp3.MediaType.Companion.toMediaType
@@ -26,6 +27,7 @@ const val SOCKET_PROCESS_LISTENER = "socket_process_listener"
 /**
  * Network module that matches the pattern used in the main YorNest app
  */
+@OptIn(ExperimentalSerializationApi::class)
 val networkModule = module {
 
     single {
@@ -57,7 +59,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl(BuildConfig.BaseApiUrl)
+            .baseUrl(BuildConfig.BASE_API_URL)
             .client(get())
             .addConverterFactory(get<Json>().asConverterFactory("application/json".toMediaType()))
             .build()
@@ -71,7 +73,7 @@ val networkModule = module {
     single<SocketConnectionManager> {
         DefaultSocketConnectionManager(
             okHttpClient = get<OkHttpClient>(),
-            socketUrl = "wss://echo.websocket.org" // Mock WebSocket URL for assessment
+            socketUrl = BuildConfig.WEBSOCKET_URL
         )
     }
 

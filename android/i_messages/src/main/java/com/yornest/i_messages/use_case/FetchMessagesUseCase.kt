@@ -19,7 +19,12 @@ class FetchMessagesUseCase(
     override suspend fun invoke(
         input: Params
     ): Flow<RequestResult<RequestData<MessagesListInfo>>> = repository.loadMessages(
-        input.requestType
+        input.requestType,
+        userId= "",
+        groupId= "",
+        channelId= "",
+        limit= 0,
+        offset= 0
     )
 
     class Params(

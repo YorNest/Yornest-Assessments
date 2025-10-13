@@ -27,12 +27,20 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            buildConfigField "String", "BaseApiUrl", '"https://your-backend-url.com/"'
+            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debugDevice {
+            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
+        }
+
         release {
             minifyEnabled false
-            buildConfigField "String", "BaseApiUrl", '"https://your-backend-url.com/"'
+            buildConfigField "String", "BASE_API_URL", '"https://your-backend-url.com/"'
+            buildConfigField "String", "WEBSOCKET_URL", '"https://your-backend-url.com/"'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -56,9 +64,13 @@ android {
         develop {
             dimension "version"
             applicationIdSuffix ".develop"
+            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
         }
         production {
             dimension "version"
+            buildConfigField "String", "BASE_API_URL", "\"https://your-production-url.com/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"wss://your-production-url.com/ws\""
         }
     }
 }

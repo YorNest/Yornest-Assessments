@@ -10,4 +10,9 @@ import com.yornest.domain.message.MessageInfo
 class MessagesState : BaseVmState() {
     val messages = MutableLiveData<List<MessageInfo>>(emptyList())
     val isRefreshing = MutableLiveData<Boolean>(false)
+
+    // Drawer state
+    val isDrawerVisible = MutableLiveData<Boolean>(false)
+    val inputText = MutableLiveData<String>("")
+    val isSubmitting = MutableLiveData<Boolean>(false)
 }

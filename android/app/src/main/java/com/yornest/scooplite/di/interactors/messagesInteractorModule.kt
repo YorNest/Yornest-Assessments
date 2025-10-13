@@ -2,6 +2,8 @@ package com.yornest.scooplite.di.interactors
 
 import com.yornest.i_messages.repository.MessagesRepository
 import com.yornest.i_messages.repository.MessagesRepositoryImpl
+import com.yornest.i_messages.use_case.CreateMessageUseCase
+import com.yornest.i_messages.use_case.DeleteMessageUseCase
 import com.yornest.i_messages.use_case.FetchMessagesUseCase
 import org.koin.dsl.module
 
@@ -22,6 +24,18 @@ val messagesInteractorModule = module {
     // Use Cases
     factory {
         FetchMessagesUseCase(
+            repository = get()
+        )
+    }
+
+    factory {
+        CreateMessageUseCase(
+            repository = get()
+        )
+    }
+
+    factory {
+        DeleteMessageUseCase(
             repository = get()
         )
     }

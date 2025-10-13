@@ -6,21 +6,19 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class MessageResponseObj(
-    @SerialName("id")
     val id: String,
-    @SerialName("sender")
-    val sender: String,
-    @SerialName("text")
-    val text: String,
-    @SerialName("timestamp")
-    val timestamp: Long
+    val userId: String,
+    val contentText: String,
+    val memberFullName: String,
+    val createdAt: Long,
+    val type: String
 ) {
     fun transform(): MessageInfo {
         return MessageInfo(
             id = id,
-            sender = sender,
-            text = text,
-            timestamp = timestamp
+            sender = memberFullName,
+            text = contentText,
+            timestamp = createdAt
         )
     }
 }

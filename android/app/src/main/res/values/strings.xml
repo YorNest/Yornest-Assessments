@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">ScoopLite</string>
     <string name="messages_title">Messages</string>
+    <string name="create_message_title">Create Message</string>
+    <string name="message_hint">Type your message here...</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
 </resources>

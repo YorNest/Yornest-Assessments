@@ -7,14 +7,16 @@ import kotlinx.serialization.Serializable
  * Matches the pattern used in the main YorNest app
  */
 @Serializable
-data class MessagesResponse(
-    val messages: List<MessageResponse>
+data class FetchMessagesResponse(
+    val post: List<MessageResponse>
 )
 
 @Serializable
 data class MessageResponse(
     val id: String,
-    val sender: String,
-    val text: String,
-    val timestamp: Long
+    val contentText: String,
+    val memberFullName: String,
+    val createdAt: Long,
 )
+
+

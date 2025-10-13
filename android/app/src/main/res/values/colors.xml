@@ -11,4 +11,5 @@
     <color name="text_primary">#FF212121</color>
     <color name="text_secondary">#FF757575</color>
     <color name="error">#FFD32F2F</color>
+    <color name="handle_bar_color">#FFBDBDBD</color>
 </resources>

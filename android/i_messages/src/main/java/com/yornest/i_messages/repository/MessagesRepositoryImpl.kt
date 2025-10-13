@@ -4,6 +4,9 @@ import com.yornest.core_base.coroutines.RequestResult
 import com.yornest.domain.message.MessageInfo
 import com.yornest.domain.message.MessagesListInfo
 import com.yornest.i_messages.api.MessagesApi
+import com.yornest.i_messages.api.request.CreateMessageRequest
+import com.yornest.i_messages.api.request.DeleteMessageRequest
+import com.yornest.i_messages.api.request.FetchMessagesRequest
 import com.yornest.i_messages.api.request.SubscribeToMessagesChangesRequest
 import com.yornest.i_messages.api.request.UnsubscribeMessagesChangesRequest
 import com.yornest.i_messages.api.response.MessageResponseObj
@@ -13,11 +16,11 @@ import com.yornest.network.socket.api.SocketManager
 import com.yornest.network.socket.api.data.SocketMessageRequestWrapper
 import com.yornest.network.use_case.request.RequestData
 import com.yornest.network.use_case.request.RequestType
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
+
 
 /**
  * Repository implementation for messages
@@ -30,9 +33,14 @@ class MessagesRepositoryImpl(
 ) : MessagesRepository {
     
     private val cachedMessages = mutableListOf<MessageInfo>()
-    
+
     override suspend fun loadMessages(
-        requestType: RequestType
+        requestType: RequestType,
+        userId: String,
+        groupId: String,
+        channelId: String,
+        limit: Int,
+        offset: Int
     ): Flow<RequestResult<RequestData<MessagesListInfo>>> = flow {
         
         // Emit cached data first if available and requested
@@ -47,50 +55,69 @@ class MessagesRepositoryImpl(
         // Load from remote if requested
         if (requestType != RequestType.CacheOnly) {
             val result = requestResultHandler.call {
-                // Simulate network delay
-                delay(1500)
-                
-                // Mock data - in real app this would call api.getMessages()
-                val mockMessages = listOf(
-                    MessageInfo(
-                        id = "1",
-                        sender = "John Doe",
-                        text = "Hello everyone! How's the development going?",
-                        timestamp = System.currentTimeMillis() - 3600000
-                    ),
-                    MessageInfo(
-                        id = "2",
-                        sender = "Jane Smith",
-                        text = "Great! Just finished implementing the new feature.",
-                        timestamp = System.currentTimeMillis() - 3000000
-                    ),
-                    MessageInfo(
-                        id = "3",
-                        sender = "Mike Johnson",
-                        text = "Anyone available for code review?",
-                        timestamp = System.currentTimeMillis() - 1800000
-                    ),
-                    MessageInfo(
-                        id = "4",
-                        sender = "Sarah Wilson",
-                        text = "I can help with that! Send me the PR link.",
-                        timestamp = System.currentTimeMillis() - 900000
-                    ),
-                    MessageInfo(
-                        id = "5",
-                        sender = "Alex Brown",
-                        text = "The new UI looks amazing! 🎉",
-                        timestamp = System.currentTimeMillis() - 300000
-                    )
+//                // Simulate network delay
+//                delay(1500)
+//
+//                // Mock data - in real app this would call api.getMessages()
+//                val mockMessages = listOf(
+//                    MessageInfo(
+//                        id = "1",
+//                        sender = "John Doe",
+//                        text = "Hello everyone! How's the development going?",
+//                        timestamp = System.currentTimeMillis() - 3600000
+//                    ),
+//                    MessageInfo(
+//                        id = "2",
+//                        sender = "Jane Smith",
+//                        text = "Great! Just finished implementing the new feature.",
+//                        timestamp = System.currentTimeMillis() - 3000000
+//                    ),
+//                    MessageInfo(
+//                        id = "3",
+//                        sender = "Mike Johnson",
+//                        text = "Anyone available for code review?",
+//                        timestamp = System.currentTimeMillis() - 1800000
+//                    ),
+//                    MessageInfo(
+//                        id = "4",
+//                        sender = "Sarah Wilson",
+//                        text = "I can help with that! Send me the PR link.",
+//                        timestamp = System.currentTimeMillis() - 900000
+//                    ),
+//                    MessageInfo(
+//                        id = "5",
+//                        sender = "Alex Brown",
+//                        text = "The new UI looks amazing! 🎉",
+//                        timestamp = System.currentTimeMillis() - 300000
+//                    )
+//                )
+
+                val fetchMsgReq = FetchMessagesRequest(
+                    userId,
+                    channelId,
+                    groupId,
+                    limit,
+                    offset
                 )
+
+                val messageResponse = api.getMessages(fetchMsgReq)
+
+                val realMessages: List<MessageInfo> = messageResponse.post.mapNotNull { parentMessage ->
+                        MessageInfo(
+                            id = parentMessage.id,
+                            sender = parentMessage.memberFullName,
+                            text = parentMessage.contentText,
+                            timestamp = parentMessage.createdAt
+                        )
+                }
                 
                 // Update cache
                 cachedMessages.clear()
-                cachedMessages.addAll(mockMessages)
+                cachedMessages.addAll(realMessages)
                 
                 MessagesListInfo(
-                    totalCount = mockMessages.size,
-                    messages = mockMessages
+                    totalCount = realMessages.size,
+                    messages = realMessages
                 )
             }
             
@@ -131,5 +158,51 @@ class MessagesRepositoryImpl(
             .onCompletion {
                 socketManager.unsubscribe(request)
             }
+    }
+
+    override suspend fun createMessage(
+        userId: String,
+        contentText: String,
+        memberFullName: String
+    ): RequestResult<MessageInfo> {
+        return requestResultHandler.call {
+            val request = CreateMessageRequest(
+                userId,
+                contentText,
+                memberFullName
+            )
+            val response = api.createMessage(request)
+
+            // Convert response to MessageInfo
+            val messageInfo = MessageInfo(
+                id = response.id,
+                sender = response.memberFullName,
+                text = response.contentText,
+                timestamp = response.createdAt
+            )
+
+            // Update cache with new message
+            cachedMessages.add(0, messageInfo) // Add to beginning for newest first
+
+            messageInfo
+        }
+    }
+
+    override suspend fun deleteMessage(
+        messageId: String,
+        userId: String
+    ): RequestResult<Boolean> {
+        return requestResultHandler.call {
+            val request = DeleteMessageRequest(
+                messageId = messageId,
+                userId = userId
+            )
+            api.deleteMessage(request)
+
+            // Remove from cache
+            cachedMessages.removeAll { it.id == messageId }
+
+            true
+        }
     }
 }

@@ -1,7 +1,12 @@
 package com.yornest.i_messages.api
 
-import com.yornest.i_messages.api.response.MessagesResponse
-import retrofit2.http.GET
+import com.yornest.i_messages.api.request.CreateMessageRequest
+import com.yornest.i_messages.api.request.DeleteMessageRequest
+import com.yornest.i_messages.api.request.FetchMessagesRequest
+import com.yornest.i_messages.api.response.FetchMessagesResponse
+import com.yornest.i_messages.api.response.MessageResponse
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 /**
  * API interface for messages
@@ -9,6 +14,12 @@ import retrofit2.http.GET
  */
 interface MessagesApi {
     
-    @GET("api/messages")
-    suspend fun getMessages(): MessagesResponse
+    @POST("fetchSimpleMessages")
+    suspend fun getMessages(@Body request: FetchMessagesRequest): FetchMessagesResponse
+
+    @POST("createSimpleMessage")
+    suspend fun createMessage(@Body request: CreateMessageRequest): MessageResponse
+
+    @POST("deleteSimpleMessage")
+    suspend fun deleteMessage(@Body request: DeleteMessageRequest): MessageResponse
 }

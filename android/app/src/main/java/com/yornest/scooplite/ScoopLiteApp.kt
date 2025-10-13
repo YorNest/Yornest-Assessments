@@ -1,5 +1,6 @@
 package com.yornest.scooplite
 
+import android.util.Log
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.yornest.scooplite.di.koinModules
 import com.yornest.core_koin.BaseKoinApplication
@@ -18,6 +19,8 @@ class ScoopLiteApp : BaseKoinApplication(), KoinComponent {
 
     override fun onCreate() {
         super.onCreate()
+        Log.d("ScoopLiteApp", "BASE_API_URL: ${BuildConfig.BASE_API_URL}")
+        Log.d("ScoopLiteApp", "WEBSOCKET_URL: ${BuildConfig.WEBSOCKET_URL}")
         initProcessLifecycleListener()
     }
 

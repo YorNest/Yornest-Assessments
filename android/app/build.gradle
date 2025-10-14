@@ -27,20 +27,20 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
-            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
+            buildConfigField "String", "BASE_API_URL", "\"https://dev.rest.api.yornest.com/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"wss://dev.ws.api.yornest.com/serveWebsocket\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
         debugDevice {
-            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
-            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
+            buildConfigField "String", "BASE_API_URL", "\"https://dev.rest.api.yornest.com/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"wss://dev.ws.api.yornest.com/serveWebsocket\""
         }
 
         release {
             minifyEnabled false
-            buildConfigField "String", "BASE_API_URL", '"https://your-backend-url.com/"'
-            buildConfigField "String", "WEBSOCKET_URL", '"https://your-backend-url.com/"'
+            buildConfigField "String", "BASE_API_URL", '"https://dev.rest.api.yornest.com/"'
+            buildConfigField "String", "WEBSOCKET_URL", '"wss://dev.ws.api.yornest.com/serveWebsocket"'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -64,13 +64,13 @@ android {
         develop {
             dimension "version"
             applicationIdSuffix ".develop"
-            buildConfigField "String", "BASE_API_URL", "\"http://10.0.2.2:8080/\""
-            buildConfigField "String", "WEBSOCKET_URL", "\"ws://10.0.2.2:8081/serveWebsocket\""
+            buildConfigField "String", "BASE_API_URL", "\"https://dev.rest.api.yornest.com/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"wss://dev.rest.api.yornest.com/serveWebsocket\""
         }
         production {
             dimension "version"
-            buildConfigField "String", "BASE_API_URL", "\"https://your-production-url.com/\""
-            buildConfigField "String", "WEBSOCKET_URL", "\"wss://your-production-url.com/ws\""
+            buildConfigField "String", "BASE_API_URL", "\"https://dev.rest.api.yornest.com/\""
+            buildConfigField "String", "WEBSOCKET_URL", "\"wss://dev.ws.api.yornest.com/serveWebsocket\""
         }
     }
 }

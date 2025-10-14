@@ -106,6 +106,28 @@ public
 tmp/
 temp/
 
+# Android/Gradle specific
+android/.gradle/
+android/build/
+android/*/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/.DS_Store
+
+# Gradle Wrapper
+android/gradle/wrapper/gradle-wrapper.properties
+
+# Android Studio
+android/.idea/
+android/*.iws
+android/*.iml
+android/*.ipr
+android/out/
+
+# Debugging Material
+err.txt
+
 #built application files
 *.apk
 *.ap_
@@ -125,7 +147,7 @@ bin/
 gen/
 
 # Local configuration file (sdk path, etc)
-*/local.properties
+local.properties
 
 # Windows thumbnail db
 Thumbs.db
@@ -152,3 +174,5 @@ build/
 obj/
 .externalNativeBuild
 
+#Debugging Material
+err.txt

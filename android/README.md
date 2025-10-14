@@ -80,4 +80,4 @@ This project is designed to test candidates on:
    - Implementing new ViewModels with proper state management
    - Adding new repository methods with proper caching strategies
 
-The architecture exactly matches the main YorNest app, so candidates who can work effectively in this codebase will be able to work effectively in the production codebase.
+The architecture design closely matches the main ScoopLite app, so candidates who can work effectively in this codebase will be able to work effectively in the production codebase.

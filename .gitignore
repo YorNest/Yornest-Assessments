@@ -125,7 +125,7 @@ bin/
 gen/
 
 # Local configuration file (sdk path, etc)
-./android/local.properties
+*/local.properties
 
 # Windows thumbnail db
 Thumbs.db

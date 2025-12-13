@@ -7,9 +7,13 @@ import com.yornest.i_messages.api.MessagesApi
 import com.yornest.i_messages.api.request.CreateMessageRequest
 import com.yornest.i_messages.api.request.DeleteMessageRequest
 import com.yornest.i_messages.api.request.FetchMessagesRequest
+import com.yornest.i_messages.api.request.SubscribeToGroupPostsRequest
 import com.yornest.i_messages.api.request.SubscribeToMessagesChangesRequest
+import com.yornest.i_messages.api.request.UnsubscribeGroupPostsRequest
 import com.yornest.i_messages.api.request.UnsubscribeMessagesChangesRequest
+import com.yornest.i_messages.api.response.GroupPostWebSocketResponse
 import com.yornest.i_messages.api.response.MessageResponseObj
+import com.yornest.i_messages.data.GroupPostChangesInfo
 import com.yornest.i_messages.data.MessageChangesInfo
 import com.yornest.network.result_handler.RequestResultHandler
 import com.yornest.network.socket.api.SocketManager
@@ -102,13 +106,29 @@ class MessagesRepositoryImpl(
 
                 val messageResponse = api.getMessages(fetchMsgReq)
 
-                val realMessages: List<MessageInfo> = messageResponse.post.mapNotNull { parentMessage ->
+                // Extract messages from the complex nested structure
+                val realMessages: List<MessageInfo> = messageResponse.post.flatMap { parentPost ->
+                    // Get messages from nested posts (the actual text content)
+                    val nestedMessages = parentPost.posts?.map { nestedPost ->
                         MessageInfo(
-                            id = parentMessage.id,
-                            sender = parentMessage.memberFullName,
-                            text = parentMessage.contentText,
-                            timestamp = parentMessage.createdAt
+                            id = nestedPost.id,
+                            sender = nestedPost.memberFullName,
+                            text = nestedPost.contentText,
+                            timestamp = nestedPost.createdAt
                         )
+                    } ?: emptyList()
+
+                    // Also include the parent post if it has content
+                    val parentMessage = if (parentPost.contentText.isNotEmpty()) {
+                        listOf(MessageInfo(
+                            id = parentPost.id,
+                            sender = parentPost.memberFullName,
+                            text = parentPost.contentText,
+                            timestamp = parentPost.createdAt
+                        ))
+                    } else emptyList()
+
+                    nestedMessages + parentMessage
                 }
                 
                 // Update cache
@@ -160,25 +180,64 @@ class MessagesRepositoryImpl(
             }
     }
 
+    override suspend fun subscribeToGroupPostsChanges(
+        userId: String,
+        groupId: String
+    ): Flow<RequestResult<List<GroupPostChangesInfo>>> {
+        val request = SocketMessageRequestWrapper(
+            SubscribeToGroupPostsRequest(
+                userId = userId,
+                groupId = groupId
+            ),
+            UnsubscribeGroupPostsRequest(
+                userId = userId,
+                groupId = groupId
+            )
+        )
+
+        return socketManager
+            .subscribeNotNull(
+                request,
+                GroupPostWebSocketResponse::class
+            )
+            .map { socketResponse ->
+                RequestResult.Success(
+                    listOf(
+                        GroupPostChangesInfo(
+                            message = socketResponse.dataNotNull.transformToMessageInfo(),
+                            changeType = socketResponse.changesType
+                        )
+                    )
+                )
+            }
+            .onCompletion {
+                socketManager.unsubscribe(request)
+            }
+    }
+
     override suspend fun createMessage(
         userId: String,
-        contentText: String,
-        memberFullName: String
+        channelId: String,
+        groupId: String,
+        contentText: String
     ): RequestResult<MessageInfo> {
         return requestResultHandler.call {
             val request = CreateMessageRequest(
-                userId,
-                contentText,
-                memberFullName
+                userId = userId,
+                channelId = channelId,
+                groupId = groupId,
+                contentText = contentText
             )
             val response = api.createMessage(request)
 
-            // Convert response to MessageInfo
+            // Extract the actual message from the nested structure
+            val actualMessage = response.post.posts?.firstOrNull() ?: response.post
+
             val messageInfo = MessageInfo(
-                id = response.id,
-                sender = response.memberFullName,
-                text = response.contentText,
-                timestamp = response.createdAt
+                id = actualMessage.id,
+                sender = actualMessage.memberFullName,
+                text = actualMessage.contentText,
+                timestamp = actualMessage.createdAt
             )
 
             // Update cache with new message

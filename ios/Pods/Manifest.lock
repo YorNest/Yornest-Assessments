@@ -1,0 +1,38 @@
+PODS:
+  - Kingfisher (7.12.0)
+  - NVActivityIndicatorView (5.2.0):
+    - NVActivityIndicatorView/Base (= 5.2.0)
+  - NVActivityIndicatorView/Base (5.2.0)
+  - SkeletonView (1.30.4)
+  - SnapKit (5.7.1)
+  - Starscream (4.0.8)
+  - Swinject (2.9.1)
+
+DEPENDENCIES:
+  - Kingfisher (~> 7.0)
+  - NVActivityIndicatorView
+  - SkeletonView
+  - SnapKit (~> 5.7.1)
+  - Starscream (~> 4.0.0)
+  - Swinject
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Kingfisher
+    - NVActivityIndicatorView
+    - SkeletonView
+    - SnapKit
+    - Starscream
+    - Swinject
+
+SPEC CHECKSUMS:
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  Starscream: 19b5533ddb925208db698f0ac508a100b884a1b9
+  Swinject: a827d508c6270da03ec74e558e728917a888fa9b
+
+PODFILE CHECKSUM: 433292918882b4ff204b9e7f9c8bef3199e228d3
+
+COCOAPODS: 1.15.2

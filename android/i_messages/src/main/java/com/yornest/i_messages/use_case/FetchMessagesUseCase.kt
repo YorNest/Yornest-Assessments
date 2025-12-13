@@ -20,14 +20,19 @@ class FetchMessagesUseCase(
         input: Params
     ): Flow<RequestResult<RequestData<MessagesListInfo>>> = repository.loadMessages(
         input.requestType,
-        userId= "",
-        groupId= "",
-        channelId= "",
-        limit= 0,
-        offset= 0
+        userId = input.userId,
+        groupId = input.groupId,
+        channelId = input.channelId,
+        limit = input.limit,
+        offset = input.offset
     )
 
     class Params(
-        val requestType: RequestType = RequestType.CacheThenRemote
+        val requestType: RequestType = RequestType.CacheThenRemote,
+        val userId: String,
+        val groupId: String,
+        val channelId: String,
+        val limit: Int = 10,
+        val offset: Int = 0
     )
 }

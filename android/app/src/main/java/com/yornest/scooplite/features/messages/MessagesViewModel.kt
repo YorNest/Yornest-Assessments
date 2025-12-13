@@ -7,7 +7,9 @@ import com.yornest.core_arch.vm.VmDependencies
 import com.yornest.i_messages.use_case.CreateMessageUseCase
 import com.yornest.i_messages.use_case.DeleteMessageUseCase
 import com.yornest.i_messages.use_case.FetchMessagesUseCase
+import com.yornest.i_messages.use_case.SubscribeToGroupPostsUseCase
 import com.yornest.network.use_case.request.RequestType
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
@@ -19,8 +21,11 @@ class MessagesViewModel(
     dependencies: VmDependencies,
     private val fetchMessagesUseCase: FetchMessagesUseCase,
     private val createMessageUseCase: CreateMessageUseCase,
-    private val deleteMessageUseCase: DeleteMessageUseCase
+    private val deleteMessageUseCase: DeleteMessageUseCase,
+    private val subscribeToGroupPostsUseCase: SubscribeToGroupPostsUseCase
 ) : BaseVm<MessagesState>(state, dependencies) {
+
+    private var webSocketSubscriptionJob: Job? = null
 
     companion object {
         private const val CURRENT_USER_ID = "2cef9c34-ee8c-4384-a963-5f875aa71240"
@@ -31,14 +36,29 @@ class MessagesViewModel(
     }
 
     init {
+        // Set current channel/group info
+        state.currentUserId.postValue(CURRENT_USER_ID)
+        state.currentChannelId.postValue(CURRENT_CHANNEL_ID)
+        state.currentGroupId.postValue(CURRENT_GROUP_ID)
+
         loadMessages()
+        subscribeToRealTimeUpdates()
     }
 
     fun loadMessages() {
         viewModelScope.launch {
             state.loading.postValue(LoadingState.Loading)
 
-            fetchMessagesUseCase(FetchMessagesUseCase.Params(RequestType.CacheThenRemote))
+            fetchMessagesUseCase(
+                FetchMessagesUseCase.Params(
+                    requestType = RequestType.CacheThenRemote,
+                    userId = CURRENT_USER_ID,
+                    groupId = CURRENT_GROUP_ID,
+                    channelId = CURRENT_CHANNEL_ID,
+                    limit = LIMIT,
+                    offset = OFFSET
+                )
+            )
                 .catch { error ->
                     runOnUi {
                         state.loading.postValue(LoadingState.Error(error.message ?: "Unknown error"))
@@ -57,7 +77,16 @@ class MessagesViewModel(
         viewModelScope.launch {
             state.isRefreshing.postValue(true)
 
-            fetchMessagesUseCase(FetchMessagesUseCase.Params(RequestType.RemoteOnly))
+            fetchMessagesUseCase(
+                FetchMessagesUseCase.Params(
+                    requestType = RequestType.RemoteOnly,
+                    userId = CURRENT_USER_ID,
+                    groupId = CURRENT_GROUP_ID,
+                    channelId = CURRENT_CHANNEL_ID,
+                    limit = LIMIT,
+                    offset = OFFSET
+                )
+            )
                 .catch { error ->
                     runOnUi {
                         state.isRefreshing.postValue(false)
@@ -98,13 +127,14 @@ class MessagesViewModel(
             try {
                 createMessageUseCase(
                     CreateMessageUseCase.Params(
-                        userId = "",
-                        contentText = "",
-                        memberFullName = ""
+                        userId = CURRENT_USER_ID,
+                        channelId = CURRENT_CHANNEL_ID,
+                        groupId = CURRENT_GROUP_ID,
+                        contentText = text
                     )
                 ).handleResult { messageInfo ->
-                    // Success case only
-                    loadMessages()
+                    // Success case - message created
+                    // Note: Real-time update will come via WebSocket
                     hideDrawer()
                     state.isSubmitting.postValue(false)
                 }
@@ -130,5 +160,50 @@ class MessagesViewModel(
                 }
             }
         }
+    }
+
+    private fun subscribeToRealTimeUpdates() {
+        webSocketSubscriptionJob?.cancel()
+
+        webSocketSubscriptionJob = viewModelScope.launch {
+            state.connectionStatus.postValue("Connecting...")
+
+            subscribeToGroupPostsUseCase(
+                SubscribeToGroupPostsUseCase.Params(
+                    userId = CURRENT_USER_ID,
+                    groupId = CURRENT_GROUP_ID
+                )
+            )
+            .catch { error ->
+                runOnUi {
+                    state.isWebSocketConnected.postValue(false)
+                    state.connectionStatus.postValue("Connection Error")
+                    dependencies.messageController.showError(error)
+                }
+            }
+            .collect { result ->
+                result.handleResult { groupPostChanges ->
+                    // Real-time message received
+                    state.isWebSocketConnected.postValue(true)
+                    state.connectionStatus.postValue("Connected")
+
+                    groupPostChanges.forEach { change ->
+                        // Add new message to the list
+                        val currentMessages = state.messages.value ?: emptyList()
+                        val updatedMessages = listOf(change.message) + currentMessages
+                        state.messages.postValue(updatedMessages)
+                    }
+                }
+            }
+        }
+    }
+
+    fun reconnectWebSocket() {
+        subscribeToRealTimeUpdates()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        webSocketSubscriptionJob?.cancel()
     }
 }

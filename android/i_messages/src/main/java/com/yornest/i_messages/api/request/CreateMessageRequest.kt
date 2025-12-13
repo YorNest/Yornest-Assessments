@@ -9,6 +9,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CreateMessageRequest(
     val userId: String,
-    val contentText: String,
-    val memberFullName: String
+    val channelId: String,
+    val groupId: String,
+    val contentText: String
 )

@@ -1,0 +1,86 @@
+name: ScoopLiteIOS
+options:
+  bundleIdPrefix: com.yornest
+  deploymentTarget:
+    iOS: "15.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    ENABLE_BITCODE: NO
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  ScoopLiteIOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: ScoopLiteIOS/ScoopLiteIOS
+        excludes:
+          - "**/.DS_Store"
+    resources:
+      - path: ScoopLiteIOS/ScoopLiteIOS/Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yornest.scoopliteios
+        INFOPLIST_FILE: ScoopLiteIOS/ScoopLiteIOS/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    # Dependencies are managed by CocoaPods (see Podfile)
+    # After `make setup`, use .xcworkspace for development
+
+  ScoopLiteIOSTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ScoopLiteIOS/ScoopLiteIOSTests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yornest.scoopliteios.tests
+        INFOPLIST_FILE: ScoopLiteIOS/ScoopLiteIOSTests/Info.plist
+    dependencies:
+      - target: ScoopLiteIOS
+
+  ScoopLiteIOSUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: ScoopLiteIOS/ScoopLiteIOSUITests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yornest.scoopliteios.uitests
+        INFOPLIST_FILE: ScoopLiteIOS/ScoopLiteIOSUITests/Info.plist
+    dependencies:
+      - target: ScoopLiteIOS
+
+schemes:
+  ScoopLiteIOS:
+    build:
+      targets:
+        ScoopLiteIOS: all
+        ScoopLiteIOSTests: [test]
+        ScoopLiteIOSUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - ScoopLiteIOSTests
+        - ScoopLiteIOSUITests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+

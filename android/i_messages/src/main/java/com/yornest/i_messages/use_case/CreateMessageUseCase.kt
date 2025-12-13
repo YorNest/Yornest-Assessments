@@ -13,16 +13,18 @@ class CreateMessageUseCase(
     private val repository: MessagesRepository
 ) : OneInputResultUseCase<CreateMessageUseCase.Params, MessageInfo>() {
 
-    override suspend fun invoke(input: Params): RequestResult<MessageInfo> = 
+    override suspend fun invoke(input: Params): RequestResult<MessageInfo> =
         repository.createMessage(
             userId = input.userId,
-            contentText = input.contentText,
-            memberFullName = input.memberFullName
+            channelId = input.channelId,
+            groupId = input.groupId,
+            contentText = input.contentText
         )
 
     class Params(
         val userId: String,
-        val contentText: String,
-        val memberFullName: String
+        val channelId: String,
+        val groupId: String,
+        val contentText: String
     )
 }

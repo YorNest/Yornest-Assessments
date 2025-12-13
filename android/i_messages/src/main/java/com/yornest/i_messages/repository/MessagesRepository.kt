@@ -3,6 +3,7 @@ package com.yornest.i_messages.repository
 import com.yornest.core_base.coroutines.RequestResult
 import com.yornest.domain.message.MessageInfo
 import com.yornest.domain.message.MessagesListInfo
+import com.yornest.i_messages.data.GroupPostChangesInfo
 import com.yornest.i_messages.data.MessageChangesInfo
 import com.yornest.network.use_case.request.RequestData
 import com.yornest.network.use_case.request.RequestType
@@ -28,10 +29,16 @@ interface MessagesRepository {
         channelId: String? = null
     ): Flow<RequestResult<List<MessageChangesInfo>>>
 
+    suspend fun subscribeToGroupPostsChanges(
+        userId: String,
+        groupId: String
+    ): Flow<RequestResult<List<GroupPostChangesInfo>>>
+
     suspend fun createMessage(
         userId: String,
-        contentText: String,
-        memberFullName: String
+        channelId: String,
+        groupId: String,
+        contentText: String
     ): RequestResult<MessageInfo>
 
     suspend fun deleteMessage(

@@ -10,20 +10,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         window = UIWindow(windowScene: windowScene)
-        
-        // Create the main messages view controller via DI container
-        let messagesVC = DIContainer.createMessagesViewController()
-        let navigationController = UINavigationController(rootViewController: messagesVC)
-        
+
+        // Start with SignIn flow (entry router that decides where to go)
+        guard let signInVC = DIContainer.shared.resolve(SignInViewController.self) else {
+            fatalError("Failed to resolve SignInViewController")
+        }
+        let navigationController = UINavigationController(rootViewController: signInVC)
+
         // Configure navigation bar appearance
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .systemBackground
         navigationController.navigationBar.standardAppearance = appearance
         navigationController.navigationBar.scrollEdgeAppearance = appearance
-        
+
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

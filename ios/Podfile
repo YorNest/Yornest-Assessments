@@ -17,8 +17,15 @@ def iosPods
   # Architecture
   pod 'Swinject'
 
-  # Networking (WebSocket)
+  # Networking
+  pod 'Alamofire', '~> 5.8'
   pod 'Starscream', '~> 4.0.0'
+  pod 'Luciq'
+
+  # Auth Flow Dependencies (matching main app)
+  pod 'DialCountries'
+  pod 'PhoneNumberKit', '~> 3.7'
+  pod 'Toast-Swift', '~> 5.0.0'
 end
 
 target 'ScoopLiteIOS' do

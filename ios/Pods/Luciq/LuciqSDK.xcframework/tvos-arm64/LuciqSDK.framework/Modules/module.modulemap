@@ -1,0 +1,11 @@
+framework module LuciqSDK {
+  umbrella header "LuciqSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module LuciqSDK.Swift {
+  header "LuciqSDK-Swift.h"
+  requires objc
+}

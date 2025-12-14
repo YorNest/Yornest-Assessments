@@ -1,6 +1,39 @@
 import UIKit
 import NVActivityIndicatorView
 import SnapKit
+import Toast_Swift
+
+// MARK: - AlertWithTwoButtonType
+
+/// Simplified version of main app's AlertWithTwoButtonType for ScoopLite
+enum AlertWithTwoButtonType {
+    case tooManyRequests
+
+    var title: String {
+        switch self {
+        case .tooManyRequests:
+            return "Too many requests"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .tooManyRequests:
+            return "Hey there, you sent too many requests. To ensure we protect your account, please contact support below."
+        }
+    }
+
+    var leftTitleButton: String {
+        return "Cancel"
+    }
+
+    var rightTitleButton: String {
+        switch self {
+        case .tooManyRequests:
+            return "Support"
+        }
+    }
+}
 
 /// App-specific base view controller with common UI functionality.
 /// 
@@ -93,33 +126,57 @@ where S: BaseState, E: BaseEvent, P: BasePresenter<S, E> {
         present(alert, animated: true)
     }
     
-    /// Shows an error banner at the top of the screen
-    func showErrorBanner(message: String) {
-        // Simple toast-like error banner
-        let banner = UILabel()
-        banner.text = message
-        banner.textColor = .white
-        banner.backgroundColor = .systemRed
-        banner.textAlignment = .center
-        banner.font = .systemFont(ofSize: 14, weight: .medium)
-        banner.layer.cornerRadius = 8
-        banner.clipsToBounds = true
-        
-        view.addSubview(banner)
-        banner.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(44)
+    /// Shows an error banner at the top of the screen (matches main app style)
+    func showErrorBanner(error: String? = nil, isInternetProblem: Bool = false) {
+        var title = error ?? "Something went wrong"
+        if isInternetProblem {
+            title = "Your internet is offline"
         }
-        
-        // Auto-dismiss after 3 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            UIView.animate(withDuration: 0.3) {
-                banner.alpha = 0
-            } completion: { _ in
-                banner.removeFromSuperview()
-            }
+
+        var style = ToastStyle()
+        style.backgroundColor = .black
+        style.messageColor = .white
+        style.messageFont = .systemFont(ofSize: 15, weight: .regular)
+        style.messageAlignment = .center
+        style.horizontalPadding = 12
+        style.verticalPadding = 12
+
+        navigationController?.view.makeToast(
+            title,
+            duration: 3.0,
+            position: .top,
+            style: style
+        )
+
+        // Round the corners to make it pill-shaped like the main app
+        if let toastView = navigationController?.view.subviews.last {
+            toastView.layer.cornerRadius = toastView.frame.height / 2
+            toastView.clipsToBounds = true
         }
+    }
+
+    // MARK: - Alert with Two Buttons
+
+    /// Shows an alert with two buttons (matching main app's showAlertWithToButtons)
+    func showAlertWithTwoButtons(
+        type: AlertWithTwoButtonType,
+        completion: ((Bool) -> Void)?
+    ) {
+        let alert = UIAlertController(
+            title: type.title,
+            message: type.description,
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: type.rightTitleButton, style: .destructive) { _ in
+            completion?(true)
+        }
+        let cancel = UIAlertAction(title: type.leftTitleButton, style: .default) { _ in
+            completion?(false)
+        }
+        alert.addAction(cancel)
+        alert.addAction(action)
+        action.setValue(Colors.segmentColor, forKey: "titleTextColor")
+        present(alert, animated: true, completion: nil)
     }
 }
 

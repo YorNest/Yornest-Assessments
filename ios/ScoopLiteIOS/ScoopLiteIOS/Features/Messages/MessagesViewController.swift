@@ -163,7 +163,7 @@ final class MessagesViewController: SLBaseViewController<MessagesState, Messages
     override func handle(_ event: MessagesEvent) {
         switch event {
         case .showError(let message):
-            showErrorBanner(message: message)
+            showErrorBanner(error: message)
             
         case .showCreateMessageSheet:
             coordinator.showCreateMessageSheet()

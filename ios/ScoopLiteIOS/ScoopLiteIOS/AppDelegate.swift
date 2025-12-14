@@ -1,4 +1,5 @@
 import UIKit
+import LuciqSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,9 +8,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Setup mock user for assessment
-        UserManager.shared.setupMockUser()
-        
+
+        // MARK: - Luciq setup (for network logging)
+        // Uses the same token as main app for dev environment
+        Luciq.start(withToken: "3036c14c34e0c05561e8aedc07c22b70", invocationEvents: [.shake, .screenshot])
+        Luciq.welcomeMessageMode = .disabled
+
         return true
     }
 

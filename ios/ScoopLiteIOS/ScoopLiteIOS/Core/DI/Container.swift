@@ -18,29 +18,96 @@ final class DIContainer {
     }
     
     // MARK: - Services Registration
-    
+
     private func setupServices() {
-        // Request Manager
+        // Request Manager (using real API calls)
         container.register(RequestManagerProtocol.self) { _ in
-            RequestManager(useMockData: true)
+            RequestManager(useMockData: false)
         }.inObjectScope(.container)
-        
+
         // Messages Service
         container.register(MessagesServiceProtocol.self) { r in
             let requestManager = r.resolve(RequestManagerProtocol.self)!
             return MessagesService(requestManager: requestManager)
         }.inObjectScope(.container)
+
+        // Auth Service (using real service for API calls)
+        container.register(AuthServiceProtocol.self) { r in
+            let requestManager = r.resolve(RequestManagerProtocol.self)!
+            return AuthService(requestManager: requestManager)
+        }.inObjectScope(.container)
     }
     
     // MARK: - View Controllers Registration
-    
+
     private func setupViewControllers() {
+        setupAuthViewControllers()
+        setupMainViewControllers()
+    }
+
+    private func setupAuthViewControllers() {
+        // SignIn (Entry Router) - uses XIB
+        container.register(SignInViewController.self) { _ in
+            let controller = SignInViewController(nibName: "SignInViewController", bundle: nil)
+            let coordinator = SignInCoordinator(view: controller)
+            let presenter = SignInViewPresenter()
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            return controller
+        }
+
+        // EnterPhone - uses XIB
+        container.register(EnterPhoneViewController.self) { r in
+            let authService = r.resolve(AuthServiceProtocol.self)!
+            let controller = EnterPhoneViewController(nibName: "EnterPhoneViewController", bundle: nil)
+            let coordinator = EnterPhoneCoordinator(view: controller)
+            let presenter = EnterPhoneViewPresenter(authService: authService)
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            return controller
+        }
+
+        // ConfirmPhoneNumber (OTP) - uses XIB
+        container.register(ConfirmPhoneNumberViewController.self) { r in
+            let authService = r.resolve(AuthServiceProtocol.self)!
+            let controller = ConfirmPhoneNumberViewController(nibName: "ConfirmPhoneNumberViewController", bundle: nil)
+            let coordinator = ConfirmPhoneNumberCoordinator(view: controller)
+            let presenter = ConfirmPhoneNumberViewPresenter(authService: authService)
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            return controller
+        }
+
+        // CreateName (Profile) - uses programmatic layout with SnapKit
+        container.register(CreateNameViewController.self) { r in
+            let authService = r.resolve(AuthServiceProtocol.self)!
+            let controller = CreateNameViewController()
+            let coordinator = CreateNameCoordinator(view: controller)
+            let presenter = CreateNameViewPresenter(authService: authService)
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            return controller
+        }
+    }
+
+    private func setupMainViewControllers() {
         // Messages View Controller
         container.register(MessagesViewController.self) { r in
             let messagesService = r.resolve(MessagesServiceProtocol.self)!
             let controller = MessagesViewController()
             let coordinator = MessagesCoordinator(view: controller)
             let presenter = MessagesViewPresenter(messagesService: messagesService)
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            return controller
+        }
+
+        // UserProfile View Controller (shows user info after successful auth)
+        container.register(UserProfileViewController.self) { r in
+            let authService = r.resolve(AuthServiceProtocol.self)!
+            let controller = UserProfileViewController()
+            let coordinator = UserProfileCoordinator(view: controller)
+            let presenter = UserProfileViewPresenter(authService: authService)
             controller.coordinator = coordinator
             controller.presenter = presenter
             return controller

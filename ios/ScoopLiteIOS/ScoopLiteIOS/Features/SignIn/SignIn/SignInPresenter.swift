@@ -12,6 +12,7 @@ enum SignInState: BaseState {
 enum SignInEvent: BaseEvent {
     case showEnterPhone
     case showCreateName
+    case showFaceLiveness
     case showHome
 }
 
@@ -37,7 +38,7 @@ final class SignInViewPresenter: BasePresenter<SignInState, SignInEvent> {
     // MARK: - Public Methods
 
     /// Determines which screen to show based on current auth state.
-    /// Matches main YorNest app's entryInApp() logic exactly.
+    /// Matches main YorNest app's entryInApp() logic exactly, plus liveness check.
     func entryInApp() {
         if !UserManager.shared.mobileNumber.isEmpty {
             if UserModelType(rawValue: UserManager.shared.type) == .unknown {
@@ -50,6 +51,9 @@ final class SignInViewPresenter: BasePresenter<SignInState, SignInEvent> {
             } else if UserManager.shared.accessToken.isEmpty || UserManager.shared.refreshToken.isEmpty {
                 LogoutHelper.removeUserData()
                 emitEvent(.showEnterPhone)
+            } else if !UserManager.shared.livenessVerified {
+                // User must complete face liveness verification before accessing home
+                emitEvent(.showFaceLiveness)
             } else {
                 emitEvent(.showHome)
             }

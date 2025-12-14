@@ -14,6 +14,14 @@ settings:
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
 
+packages:
+  FaceLiveness:
+    url: https://github.com/aws-amplify/amplify-ui-swift-liveness
+    from: "1.4.0"
+  Amplify:
+    url: https://github.com/aws-amplify/amplify-swift
+    from: "2.51.5"
+
 targets:
   ScoopLiteIOS:
     type: application
@@ -32,7 +40,12 @@ targets:
         DEVELOPMENT_TEAM: ""
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
-    # Dependencies are managed by CocoaPods (see Podfile)
+    dependencies:
+      - package: FaceLiveness
+        product: FaceLiveness
+      - package: Amplify
+        product: AWSPluginsCore
+    # Additional dependencies are managed by CocoaPods (see Podfile)
     # After `make setup`, use .xcworkspace for development
 
   ScoopLiteIOSTests:

@@ -20,6 +20,8 @@ struct AppFonts {
     static let semibold_14: UIFont = .systemFont(ofSize: 14, weight: .semibold)
     static let semibold_12: UIFont = .systemFont(ofSize: 12, weight: .semibold)
     
+    static let bold_24: UIFont = .systemFont(ofSize: 24, weight: .bold)
+    static let bold_20: UIFont = .systemFont(ofSize: 20, weight: .bold)
     static let bold_18: UIFont = .systemFont(ofSize: 18, weight: .bold)
     static let bold_16: UIFont = .systemFont(ofSize: 16, weight: .bold)
     static let bold_14: UIFont = .systemFont(ofSize: 14, weight: .bold)

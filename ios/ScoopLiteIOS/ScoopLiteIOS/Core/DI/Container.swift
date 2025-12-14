@@ -88,6 +88,19 @@ final class DIContainer {
             controller.presenter = presenter
             return controller
         }
+
+        // FaceLiveness (Identity Verification) - uses programmatic layout with SnapKit + AWS SDK
+        container.register(FaceLivenessViewController.self) { r in
+            let authService = r.resolve(AuthServiceProtocol.self)!
+            let controller = FaceLivenessViewController()
+            let coordinator = FaceLivenessCoordinator(view: controller)
+            let presenter = FaceLivenessViewPresenter(authService: authService)
+            let credentialsProvider = LivenessCredentialsProvider(authService: authService)
+            controller.coordinator = coordinator
+            controller.presenter = presenter
+            controller.credentialsProvider = credentialsProvider
+            return controller
+        }
     }
 
     private func setupMainViewControllers() {

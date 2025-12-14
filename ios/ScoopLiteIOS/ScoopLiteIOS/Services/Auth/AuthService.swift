@@ -11,6 +11,11 @@ protocol AuthServiceProtocol {
     func updateTempUserToUser(model: UpdateTempUserToUserRequestModel) async throws -> UpdateTempUserToUserResultModel
     func logout(userId: String) async throws
     func deleteUser() async throws
+
+    // Face Liveness
+    func createFaceLivenessSession(userId: String) async throws -> CreateFaceLivenessSessionResultModel
+    func getFaceLivenessSessionResults(sessionId: String) async throws -> GetFaceLivenessSessionResultsResultModel
+    func getFaceLivenessCredentials() async throws -> GetFaceLivenessCredentialsResultModel
 }
 
 // MARK: - Auth Service Implementation
@@ -77,5 +82,22 @@ final class AuthService: AuthServiceProtocol {
     func deleteUser() async throws {
         let endpoint = DeleteUserEndpoint()
         let _: DeleteUserResultModel = try await requestManager.request(endPoint: endpoint)
+    }
+
+    // MARK: - Face Liveness
+
+    func createFaceLivenessSession(userId: String) async throws -> CreateFaceLivenessSessionResultModel {
+        let endpoint = CreateFaceLivenessSessionEndpoint(userId: userId)
+        return try await requestManager.request(endPoint: endpoint)
+    }
+
+    func getFaceLivenessSessionResults(sessionId: String) async throws -> GetFaceLivenessSessionResultsResultModel {
+        let endpoint = GetFaceLivenessSessionResultsEndpoint(sessionId: sessionId)
+        return try await requestManager.request(endPoint: endpoint)
+    }
+
+    func getFaceLivenessCredentials() async throws -> GetFaceLivenessCredentialsResultModel {
+        let endpoint = GetFaceLivenessCredentialsEndpoint()
+        return try await requestManager.request(endPoint: endpoint)
     }
 }

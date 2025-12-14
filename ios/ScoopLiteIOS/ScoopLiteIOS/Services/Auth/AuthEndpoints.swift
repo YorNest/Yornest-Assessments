@@ -115,3 +115,39 @@ struct UpdateTempUserToUserEndpoint: EndPointProtocol {
         ]
     }
 }
+
+// MARK: - Face Liveness Endpoints
+
+/// Create a Face Liveness session with AWS Rekognition
+struct CreateFaceLivenessSessionEndpoint: EndPointProtocol {
+    var path: String { BackendConfig.newBaseURL + "createFaceLivenessSession" }
+    var httpMethod: HTTPMethod { .post }
+    var requestParameters: Parameters = [:]
+    var headers: [String: String] { [:] }
+
+    init(userId: String) {
+        self.requestParameters = ["userId": userId]
+    }
+}
+
+/// Get Face Liveness session results from AWS Rekognition
+struct GetFaceLivenessSessionResultsEndpoint: EndPointProtocol {
+    var path: String { BackendConfig.newBaseURL + "getFaceLivenessSessionResults" }
+    var httpMethod: HTTPMethod { .post }
+    var requestParameters: Parameters = [:]
+    var headers: [String: String] { [:] }
+
+    init(sessionId: String) {
+        self.requestParameters = ["sessionId": sessionId]
+    }
+}
+
+/// Get temporary AWS credentials for Face Liveness SDK
+struct GetFaceLivenessCredentialsEndpoint: EndPointProtocol {
+    var path: String { BackendConfig.newBaseURL + "getFaceLivenessCredentials" }
+    var httpMethod: HTTPMethod { .post }
+    var requestParameters: Parameters = [:]
+    var headers: [String: String] { [:] }
+
+    init() {}
+}

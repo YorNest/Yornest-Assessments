@@ -49,9 +49,25 @@ final class CreateNameCoordinator {
     }
 
     func showNotificationSettings() {
-        // For ScoopLite, we skip notification settings and go directly to Home
-        // In the main app, this would show a notification permission screen
-        showHome()
+        // For ScoopLite, we go to Face Liveness verification after profile creation
+        showFaceLiveness()
+    }
+
+    func showFaceLiveness() {
+        #if DEBUG
+        print("🔐 [CreateName.showFaceLiveness] Navigating to Face Liveness")
+        #endif
+
+        guard let vc = DIContainer.shared.resolve(FaceLivenessViewController.self) else {
+            #if DEBUG
+            print("❌ [CreateName.showFaceLiveness] Failed to resolve FaceLivenessViewController")
+            #endif
+            // Fallback to Home if FaceLiveness not available
+            showHome()
+            return
+        }
+
+        view?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

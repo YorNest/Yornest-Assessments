@@ -26,7 +26,12 @@ final class SignInCoordinator {
         guard let vc = DIContainer.shared.resolve(CreateNameViewController.self) else { return }
         view?.navigationController?.pushViewController(vc, animated: false)
     }
-    
+
+    func showFaceLiveness() {
+        guard let vc = DIContainer.shared.resolve(FaceLivenessViewController.self) else { return }
+        view?.navigationController?.pushViewController(vc, animated: false)
+    }
+
     func showHome() {
         guard let vc = DIContainer.shared.resolve(UserProfileViewController.self) else { return }
         let navController = UINavigationController(rootViewController: vc)

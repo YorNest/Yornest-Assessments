@@ -185,6 +185,49 @@ struct UpdateTempUserToUserResultModel: Codable {
     }
 }
 
+// MARK: - Face Liveness
+
+/// Request model for creating a Face Liveness session
+struct CreateFaceLivenessSessionRequestModel: Codable {
+    let userId: String
+}
+
+/// Response model from createFaceLivenessSession API
+struct CreateFaceLivenessSessionResultModel: Codable {
+    var result: String?
+    var message: String?
+    var sessionId: String?
+    var error: String?
+}
+
+/// Request model for getting Face Liveness session results
+struct GetFaceLivenessSessionResultsRequestModel: Codable {
+    let sessionId: String
+}
+
+/// Response model from getFaceLivenessSessionResults API
+struct GetFaceLivenessSessionResultsResultModel: Codable {
+    var result: String?
+    var message: String?
+    var isLive: Bool?
+    var confidence: Float?
+    var status: String?
+    var userId: String?
+    var error: String?
+}
+
+/// Response model from getFaceLivenessCredentials API
+/// Contains temporary AWS credentials for the FaceLiveness SDK
+struct GetFaceLivenessCredentialsResultModel: Codable {
+    var result: String?
+    var message: String?
+    var accessKeyId: String?
+    var secretAccessKey: String?
+    var sessionToken: String?
+    var expiration: String?
+    var error: String?
+}
+
 // MARK: - Auth Error
 
 enum AuthError: Error, LocalizedError {
@@ -194,7 +237,9 @@ enum AuthError: Error, LocalizedError {
     case serverError(String)
     case usernameTaken
     case invalidPhoneNumber
-    
+    case livenessCheckFailed
+    case livenessSessionExpired
+
     var errorDescription: String? {
         switch self {
         case .invalidCode:
@@ -209,6 +254,10 @@ enum AuthError: Error, LocalizedError {
             return "Username is already taken"
         case .invalidPhoneNumber:
             return "Invalid phone number"
+        case .livenessCheckFailed:
+            return "Face verification failed. Please try again"
+        case .livenessSessionExpired:
+            return "Liveness session expired. Please try again"
         }
     }
 }

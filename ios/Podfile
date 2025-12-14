@@ -26,6 +26,9 @@ def iosPods
   pod 'DialCountries'
   pod 'PhoneNumberKit', '~> 3.7'
   pod 'Toast-Swift', '~> 5.0.0'
+
+  # Note: AWS Face Liveness (FaceLiveness) is added via Swift Package Manager
+  # See project.yml for SPM package configuration
 end
 
 target 'ScoopLiteIOS' do

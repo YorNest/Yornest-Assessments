@@ -28,7 +28,7 @@ def iosPods
   pod 'Toast-Swift', '~> 5.0.0'
 
   # Note: AWS Face Liveness (FaceLiveness) is added via Swift Package Manager
-  # See project.yml for SPM package configuration
+  # See project.yml for SPM Liveness package configuration
 end
 
 target 'ScoopLiteIOS' do

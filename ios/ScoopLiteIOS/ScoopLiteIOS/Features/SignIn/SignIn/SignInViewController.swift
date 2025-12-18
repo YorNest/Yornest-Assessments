@@ -48,8 +48,6 @@ final class SignInViewController: SLBaseViewController<SignInState, SignInEvent,
             coordinator.showEnterPhone()
         case .showCreateName:
             coordinator.showCreateName()
-        case .showFaceLiveness:
-            coordinator.showFaceLiveness()
         case .showHome:
             coordinator.showHome()
         }

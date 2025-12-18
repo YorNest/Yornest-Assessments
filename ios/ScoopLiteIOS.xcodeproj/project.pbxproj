@@ -16,19 +16,16 @@
 		10B8983C012D78CE760347F8 /* MessagesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB8264F92DEF67ECAB6BF84 /* MessagesViewControllerTests.swift */; };
 		1499F012AD6A3839B5B618BE /* BackendConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A90B83B6EED2E347A80A64E /* BackendConfig.swift */; };
 		18CDDC2E33653DE7144FAE8B /* ConfirmPhoneNumberPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC74976AC295A0A6532BD646 /* ConfirmPhoneNumberPresenter.swift */; };
-		1E8FF8678F80E5241C1D43AB /* Pods_ScoopLiteIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B218B007BD64CAA5370B0E5 /* Pods_ScoopLiteIOS.framework */; };
 		2568018C28B742F441F5F93C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA243928D54F454F1C5379 /* SignInViewController.swift */; };
 		261FDC3F2945551DBFC2A71C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CAC418DCA1D265538AAE1 /* SceneDelegate.swift */; };
 		2A503A64AA37D4BCD453BDEF /* EnterPhonePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A4590F77E7743190F4C5D /* EnterPhonePresenter.swift */; };
 		2F7D3960B3CCBE2FA0B752D2 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254DEF20E6A701E17DEA41F /* TestUtils.swift */; };
-		36505ABF5E4E47563C017B7C /* LivenessCredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0859C37342165EB881DE6CDD /* LivenessCredentialsProvider.swift */; };
 		3B9735B297EF67D26CF0013F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8068312E47305D6581B3EC2 /* Colors.swift */; };
 		3C28C49EF5EDDADD63FE0DB3 /* BaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE2A084186DB839623FEF9F /* BaseState.swift */; };
+		3CF9B0DF50588F6768F0D251 /* Pods_ScoopLiteIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6942D2E6A6AA838B702ADD /* Pods_ScoopLiteIOS.framework */; };
 		3EE8BC387C5801A1D7E6B053 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B4A615A206303F747F02E /* MessagesService.swift */; };
-		3FDC47A9FD9CD807AC85FA1D /* Pods_ScoopLiteIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E438143FB2D1B55C9BE9A9D9 /* Pods_ScoopLiteIOSTests.framework */; };
 		53EBE9BD958B2AD792C156FA /* EnterPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA650B558A144387A8C721B /* EnterPhoneViewController.swift */; };
-		58C9E4CC82C57662107E044C /* FaceLivenessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B45E4BDB826EF258DF10035 /* FaceLivenessViewController.swift */; };
-		58D0848953857CEC5A97F37D /* Pods_ScoopLiteIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC258ED19870043F093A813 /* Pods_ScoopLiteIOSUITests.framework */; };
+		576E7841894D6066DAC6C98A /* Pods_ScoopLiteIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE0F8C0F519CF2547D76F43 /* Pods_ScoopLiteIOSUITests.framework */; };
 		5EDF2DDB2A867D6F9D171A5D /* MessagesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBD112C2080D10360FF47E3 /* MessagesEndpoints.swift */; };
 		601825D1CC5F8B9D15AABA1B /* FaceLiveness in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78CF7031A91B9CFA476C1B /* FaceLiveness */; };
 		72E4B18893DB00667DF94D56 /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD7BD3CF1705563B7BF935 /* MessagesCoordinator.swift */; };
@@ -54,15 +51,14 @@
 		C4C8FCDCFC5456B532E05EDA /* EnterPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACBADEF5D6ECE28C347D7E6 /* EnterPhoneViewController.xib */; };
 		C905961B47DEAC56964F991D /* EndPointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB224F142AC2F7989E1B8F /* EndPointProtocol.swift */; };
 		C9261E62500A7CA5A5225578 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034FB620B1A9900662EE034A /* SignInViewController.xib */; };
-		C936DA1C0716338E8342D64E /* FaceLivenessCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E916FF1C5708208AA6E8A79 /* FaceLivenessCoordinator.swift */; };
 		CBE607393E875F6BB0B579B8 /* MessagesListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8195AE11DC867847DC133CF0 /* MessagesListInfo.swift */; };
 		D18FBF8DBE83A0F067605EDF /* MessagesStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3FAB7C9208EAC78A869F49 /* MessagesStateTests.swift */; };
 		D1EEF7524795C753C138968B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC4C462C542B681FE26CB0 /* Assets.xcassets */; };
 		D4D72EFC2812E115BCB5A0AF /* SLBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B6B180422035105ADF0483 /* SLBaseViewController.swift */; };
 		E22CF9A906A2CEACD3FA15DC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD576CA9EEAAC927065ABE94 /* UserManager.swift */; };
 		E61D14DA4144993B39927A62 /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961E5DB94AD535EB27C7ED44 /* UserProfileCoordinator.swift */; };
+		E8340A00DA740038B0C84512 /* Pods_ScoopLiteIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7507704CA1CF1D70C5346A /* Pods_ScoopLiteIOSTests.framework */; };
 		E8B1B5395F9EB207A403B320 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78B315381D8057863279E65 /* UserProfilePresenter.swift */; };
-		EA8EE45D33E04DA778C1051F /* FaceLivenessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911980A87C8957ADAEFB8B98 /* FaceLivenessPresenter.swift */; };
 		EB16E4FD9CFAA4D533E29555 /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3BB595FD77151AD3533456 /* ContactHelper.swift */; };
 		EC5119494C87F3B86B6AD31A /* ConfirmPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E84C918E60F7C100A47CDEF /* ConfirmPhoneNumberViewController.swift */; };
 		F05C7B39482453D194E49A8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D834D3CE1AC1DC4D88C8449 /* AppDelegate.swift */; };
@@ -93,13 +89,12 @@
 /* Begin PBXFileReference section */
 		034FB620B1A9900662EE034A /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		07D11B99ED6B172024F199F1 /* EnterPhoneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneCoordinator.swift; sourceTree = "<group>"; };
-		0859C37342165EB881DE6CDD /* LivenessCredentialsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessCredentialsProvider.swift; sourceTree = "<group>"; };
 		085BE57034B735EC4D79CC88 /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
 		09BB224F142AC2F7989E1B8F /* EndPointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointProtocol.swift; sourceTree = "<group>"; };
 		0BE2A084186DB839623FEF9F /* BaseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseState.swift; sourceTree = "<group>"; };
-		0E20EE7933FCA5ED1A026CA3 /* Pods-ScoopLiteIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOS.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOS/Pods-ScoopLiteIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		0FEA243928D54F454F1C5379 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		12785C826F484709A0B883A3 /* ScoopLiteIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoopLiteIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12785C826F484709A0B883A3 /* ScoopLiteIOSTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ScoopLiteIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B6942D2E6A6AA838B702ADD /* Pods_ScoopLiteIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F1B4A615A206303F747F02E /* MessagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		27925F05B264A44644A0672D /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		2D154013C2FD9153A785FF72 /* MessagesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenterTests.swift; sourceTree = "<group>"; };
@@ -110,50 +105,49 @@
 		34A0A0D4694E3C9767879039 /* ConfirmPhoneNumberCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberCoordinator.swift; sourceTree = "<group>"; };
 		3EF0033814D1357A8691E744 /* RequestAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIError.swift; sourceTree = "<group>"; };
 		446CAC418DCA1D265538AAE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		492C439C090301A2004A6C2C /* Pods-ScoopLiteIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSUITests/Pods-ScoopLiteIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B4DA54ADC6892DB6FEEDCE7 /* Pods-ScoopLiteIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOS.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOS/Pods-ScoopLiteIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4BA5D742EAFFB891FC9005F6 /* Pods-ScoopLiteIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOS.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOS/Pods-ScoopLiteIOS.release.xcconfig"; sourceTree = "<group>"; };
 		4E7EF643A1CDE4BEFB721B25 /* CreateMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageViewController.swift; sourceTree = "<group>"; };
 		4FA06E49CD53CB998886D311 /* AuthEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoints.swift; sourceTree = "<group>"; };
+		57E1840488CFF5DEDEC24C99 /* Pods-ScoopLiteIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSTests/Pods-ScoopLiteIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		581F28A22586BACEFF3765D0 /* ConfirmPhoneNumberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPhoneNumberViewController.xib; sourceTree = "<group>"; };
 		5AD51F9D634214E0EB1082BE /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		5E3FAB7C9208EAC78A869F49 /* MessagesStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesStateTests.swift; sourceTree = "<group>"; };
 		5FCA44BF79223343ABD9234D /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		6D834D3CE1AC1DC4D88C8449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E84C918E60F7C100A47CDEF /* ConfirmPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberViewController.swift; sourceTree = "<group>"; };
-		6E916FF1C5708208AA6E8A79 /* FaceLivenessCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessCoordinator.swift; sourceTree = "<group>"; };
 		70454B019CA26187DF34A1E7 /* CreateNamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNamePresenter.swift; sourceTree = "<group>"; };
 		7254DEF20E6A701E17DEA41F /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		75956704E514C03D871710AC /* Pods-ScoopLiteIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSUITests/Pods-ScoopLiteIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		77C705510E473BD170D2750A /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		7A90B83B6EED2E347A80A64E /* BackendConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConfig.swift; sourceTree = "<group>"; };
 		7BC7ACBA4B443FA35239F7B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7CAD0BB7B0C0E1BA896C30F1 /* MessagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		7EBED9A72A6F7BC97D1D5F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7FF8A01587600460577A2D9E /* Pods-ScoopLiteIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSUITests/Pods-ScoopLiteIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8195AE11DC867847DC133CF0 /* MessagesListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListInfo.swift; sourceTree = "<group>"; };
 		86B6B180422035105ADF0483 /* SLBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLBaseViewController.swift; sourceTree = "<group>"; };
+		8D7507704CA1CF1D70C5346A /* Pods_ScoopLiteIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDC4C462C542B681FE26CB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		911980A87C8957ADAEFB8B98 /* FaceLivenessPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessPresenter.swift; sourceTree = "<group>"; };
-		9534C1E52001472B8B196DF9 /* Pods-ScoopLiteIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSTests/Pods-ScoopLiteIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		961E5DB94AD535EB27C7ED44 /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
-		9B218B007BD64CAA5370B0E5 /* Pods_ScoopLiteIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B45E4BDB826EF258DF10035 /* FaceLivenessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessViewController.swift; sourceTree = "<group>"; };
 		9C3BB595FD77151AD3533456 /* ContactHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHelper.swift; sourceTree = "<group>"; };
-		9DC258ED19870043F093A813 /* Pods_ScoopLiteIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB8264F92DEF67ECAB6BF84 /* MessagesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewControllerTests.swift; sourceTree = "<group>"; };
 		A97C7C26B55AB73ADD672A1A /* BaseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEvent.swift; sourceTree = "<group>"; };
-		B0AFEFFCB68A9EBD9DD36A0A /* ScoopLiteIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoopLiteIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA4C77C2FA3F77DA04C663B0 /* Pods-ScoopLiteIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSTests/Pods-ScoopLiteIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0AFEFFCB68A9EBD9DD36A0A /* ScoopLiteIOSUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ScoopLiteIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD576CA9EEAAC927065ABE94 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		BDA650B558A144387A8C721B /* EnterPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneViewController.swift; sourceTree = "<group>"; };
 		C3A50208FA1ACCCCF5F68D02 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
 		C59E52BBF17C0B08BDDA9557 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C78B315381D8057863279E65 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		C9A3F5A40796082B9E7AD9E8 /* CreateNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNameViewController.swift; sourceTree = "<group>"; };
-		CF0DFB5A0D8E4902F371A289 /* Pods-ScoopLiteIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOS.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOS/Pods-ScoopLiteIOS.release.xcconfig"; sourceTree = "<group>"; };
 		CFBD112C2080D10360FF47E3 /* MessagesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesEndpoints.swift; sourceTree = "<group>"; };
 		D202C9513E7B8A5F9A6627C3 /* ScoopLiteIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoopLiteIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D32DA697CB98203F58DAE296 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		D7148003DB7DFC3DED11865B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DA926F7A7522A19C8912F630 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		DBE0F8C0F519CF2547D76F43 /* Pods_ScoopLiteIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E365C7E20B5094F0DF1CCF94 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
-		E438143FB2D1B55C9BE9A9D9 /* Pods_ScoopLiteIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScoopLiteIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A8B2AA4FDECA0540D8B619 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E7245BD10AF040803CA44730 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E8068312E47305D6581B3EC2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -162,25 +156,23 @@
 		EBEDD99061547E441A76D196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC74976AC295A0A6532BD646 /* ConfirmPhoneNumberPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneNumberPresenter.swift; sourceTree = "<group>"; };
 		EF81E69CBAFE3F11763DE6B6 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
-		F56491DCEA514567F5B736A4 /* Pods-ScoopLiteIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSUITests/Pods-ScoopLiteIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F9EC644DE2B9D77F7A7505BD /* Pods-ScoopLiteIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScoopLiteIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ScoopLiteIOSTests/Pods-ScoopLiteIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD140BB1BAC2E18B0857D8A8 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2DF07CB89044CF1EE3FE5FC0 /* Frameworks */ = {
+		329AE3513068987D128FBF6F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D0848953857CEC5A97F37D /* Pods_ScoopLiteIOSUITests.framework in Frameworks */,
+				576E7841894D6066DAC6C98A /* Pods_ScoopLiteIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		409E94227852892143063796 /* Frameworks */ = {
+		3CE42281BF0A478809354153 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FDC47A9FD9CD807AC85FA1D /* Pods_ScoopLiteIOSTests.framework in Frameworks */,
+				E8340A00DA740038B0C84512 /* Pods_ScoopLiteIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +182,7 @@
 			files = (
 				601825D1CC5F8B9D15AABA1B /* FaceLiveness in Frameworks */,
 				FD973D064FFBFA06415508D5 /* AWSPluginsCore in Frameworks */,
-				1E8FF8678F80E5241C1D43AB /* Pods_ScoopLiteIOS.framework in Frameworks */,
+				3CF9B0DF50588F6768F0D251 /* Pods_ScoopLiteIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,30 +318,6 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
-		67AE7259B4692E3E6FD83BFC /* FaceLiveness */ = {
-			isa = PBXGroup;
-			children = (
-				6E916FF1C5708208AA6E8A79 /* FaceLivenessCoordinator.swift */,
-				911980A87C8957ADAEFB8B98 /* FaceLivenessPresenter.swift */,
-				9B45E4BDB826EF258DF10035 /* FaceLivenessViewController.swift */,
-				0859C37342165EB881DE6CDD /* LivenessCredentialsProvider.swift */,
-			);
-			path = FaceLiveness;
-			sourceTree = "<group>";
-		};
-		72063023824F0467B42664AD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0E20EE7933FCA5ED1A026CA3 /* Pods-ScoopLiteIOS.debug.xcconfig */,
-				CF0DFB5A0D8E4902F371A289 /* Pods-ScoopLiteIOS.release.xcconfig */,
-				9534C1E52001472B8B196DF9 /* Pods-ScoopLiteIOSTests.debug.xcconfig */,
-				F9EC644DE2B9D77F7A7505BD /* Pods-ScoopLiteIOSTests.release.xcconfig */,
-				492C439C090301A2004A6C2C /* Pods-ScoopLiteIOSUITests.debug.xcconfig */,
-				F56491DCEA514567F5B736A4 /* Pods-ScoopLiteIOSUITests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		882CA0E4754A582203C241B6 /* ScoopLiteIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +343,6 @@
 				3B3DAF3639A23BE7F44D79C1 /* ConfirmPhoneNumber */,
 				E35B8405235754F04EA41919 /* CreateName */,
 				1853E4365ED12E2DDE7D35C5 /* EnterPhone */,
-				67AE7259B4692E3E6FD83BFC /* FaceLiveness */,
 				D582B62C0F7B97BD5E0EC492 /* SignIn */,
 			);
 			path = SignIn;
@@ -396,16 +363,6 @@
 				E8068312E47305D6581B3EC2 /* Colors.swift */,
 			);
 			path = Colors;
-			sourceTree = "<group>";
-		};
-		A7F2CA0142934443F73120FD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9B218B007BD64CAA5370B0E5 /* Pods_ScoopLiteIOS.framework */,
-				E438143FB2D1B55C9BE9A9D9 /* Pods_ScoopLiteIOSTests.framework */,
-				9DC258ED19870043F093A813 /* Pods_ScoopLiteIOSUITests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AF4E9C67B4245B5212DEC485 /* Resources */ = {
@@ -469,8 +426,8 @@
 			children = (
 				FE521A9B6716BC8DF6E46932 /* ScoopLiteIOS */,
 				B6729D83C171C04254FE295B /* Products */,
-				72063023824F0467B42664AD /* Pods */,
-				A7F2CA0142934443F73120FD /* Frameworks */,
+				D590C3AB5A0A007B94CE88E0 /* Pods */,
+				E9E5A88A4E5210A257255053 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,6 +448,20 @@
 				034FB620B1A9900662EE034A /* SignInViewController.xib */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		D590C3AB5A0A007B94CE88E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B4DA54ADC6892DB6FEEDCE7 /* Pods-ScoopLiteIOS.debug.xcconfig */,
+				4BA5D742EAFFB891FC9005F6 /* Pods-ScoopLiteIOS.release.xcconfig */,
+				AA4C77C2FA3F77DA04C663B0 /* Pods-ScoopLiteIOSTests.debug.xcconfig */,
+				57E1840488CFF5DEDEC24C99 /* Pods-ScoopLiteIOSTests.release.xcconfig */,
+				7FF8A01587600460577A2D9E /* Pods-ScoopLiteIOSUITests.debug.xcconfig */,
+				75956704E514C03D871710AC /* Pods-ScoopLiteIOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		DE1B036136A3BBFBB47F2FC8 /* Auth */ = {
@@ -523,6 +494,16 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		E9E5A88A4E5210A257255053 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B6942D2E6A6AA838B702ADD /* Pods_ScoopLiteIOS.framework */,
+				8D7507704CA1CF1D70C5346A /* Pods_ScoopLiteIOSTests.framework */,
+				DBE0F8C0F519CF2547D76F43 /* Pods_ScoopLiteIOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE521A9B6716BC8DF6E46932 /* ScoopLiteIOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,11 +521,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15CF889F8FBD6D2EA2FC1017 /* Build configuration list for PBXNativeTarget "ScoopLiteIOS" */;
 			buildPhases = (
-				0A3DC26570F9164D8DA32FA6 /* [CP] Check Pods Manifest.lock */,
+				40A066FD48948DB1BAA27500 /* [CP] Check Pods Manifest.lock */,
 				A3CA7F76F622943E2BFF88F4 /* Sources */,
 				05D77568A59142CC2E96C632 /* Resources */,
 				54B84CFAB5D939F5B56BF2C0 /* Frameworks */,
-				2C1A2D4BB9A483FDDD45E971 /* [CP] Embed Pods Frameworks */,
+				7AA8FCD5598D05E31B6A76E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -563,9 +544,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16D35315D2BD1F7344632B5F /* Build configuration list for PBXNativeTarget "ScoopLiteIOSUITests" */;
 			buildPhases = (
-				19ABB0365B27F0E699289F82 /* [CP] Check Pods Manifest.lock */,
+				70FAAD4FCEDBB6DADB2A1F0B /* [CP] Check Pods Manifest.lock */,
 				33F9E84B21BEDC3AF8B47FD9 /* Sources */,
-				2DF07CB89044CF1EE3FE5FC0 /* Frameworks */,
+				329AE3513068987D128FBF6F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -581,9 +562,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24D04E52D7D4E84098524C97 /* Build configuration list for PBXNativeTarget "ScoopLiteIOSTests" */;
 			buildPhases = (
-				69ACEBE06E25D62080F2E879 /* [CP] Check Pods Manifest.lock */,
+				47420278BD28C79D43AC0C2B /* [CP] Check Pods Manifest.lock */,
 				347BF3B5B6667462ADFBF92B /* Sources */,
-				409E94227852892143063796 /* Frameworks */,
+				3CE42281BF0A478809354153 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -653,7 +634,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A3DC26570F9164D8DA32FA6 /* [CP] Check Pods Manifest.lock */ = {
+		40A066FD48948DB1BAA27500 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -675,7 +656,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		19ABB0365B27F0E699289F82 /* [CP] Check Pods Manifest.lock */ = {
+		47420278BD28C79D43AC0C2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScoopLiteIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70FAAD4FCEDBB6DADB2A1F0B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -697,7 +700,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C1A2D4BB9A483FDDD45E971 /* [CP] Embed Pods Frameworks */ = {
+		7AA8FCD5598D05E31B6A76E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,28 +715,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScoopLiteIOS/Pods-ScoopLiteIOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69ACEBE06E25D62080F2E879 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScoopLiteIOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -785,10 +766,6 @@
 				8F897AD38DF9A755328E5600 /* EnterPhoneCoordinator.swift in Sources */,
 				2A503A64AA37D4BCD453BDEF /* EnterPhonePresenter.swift in Sources */,
 				53EBE9BD958B2AD792C156FA /* EnterPhoneViewController.swift in Sources */,
-				C936DA1C0716338E8342D64E /* FaceLivenessCoordinator.swift in Sources */,
-				EA8EE45D33E04DA778C1051F /* FaceLivenessPresenter.swift in Sources */,
-				58C9E4CC82C57662107E044C /* FaceLivenessViewController.swift in Sources */,
-				36505ABF5E4E47563C017B7C /* LivenessCredentialsProvider.swift in Sources */,
 				BA2B2FBF35B6779F9377A677 /* LoadingButton.swift in Sources */,
 				C19FD3433C4DD4DD61B54253 /* MessageCell.swift in Sources */,
 				8E93FCA9D6C46141A7A262FD /* MessageInfo.swift in Sources */,
@@ -898,7 +875,7 @@
 		};
 		22A630AAF43C71057A82057C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E20EE7933FCA5ED1A026CA3 /* Pods-ScoopLiteIOS.debug.xcconfig */;
+			baseConfigurationReference = 4B4DA54ADC6892DB6FEEDCE7 /* Pods-ScoopLiteIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -918,7 +895,7 @@
 		};
 		5DA72FDC4E67C884E2D5CC2D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 492C439C090301A2004A6C2C /* Pods-ScoopLiteIOSUITests.debug.xcconfig */;
+			baseConfigurationReference = 7FF8A01587600460577A2D9E /* Pods-ScoopLiteIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScoopLiteIOS/ScoopLiteIOSUITests/Info.plist;
@@ -936,7 +913,7 @@
 		};
 		5F3A555480EEEE14E6DE2BA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9EC644DE2B9D77F7A7505BD /* Pods-ScoopLiteIOSTests.release.xcconfig */;
+			baseConfigurationReference = 57E1840488CFF5DEDEC24C99 /* Pods-ScoopLiteIOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScoopLiteIOS/ScoopLiteIOSTests/Info.plist;
@@ -954,7 +931,7 @@
 		};
 		6B06B84670742AC9DBC7BEBB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9534C1E52001472B8B196DF9 /* Pods-ScoopLiteIOSTests.debug.xcconfig */;
+			baseConfigurationReference = AA4C77C2FA3F77DA04C663B0 /* Pods-ScoopLiteIOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScoopLiteIOS/ScoopLiteIOSTests/Info.plist;
@@ -972,7 +949,7 @@
 		};
 		94886ACF26168CE9A67F093F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF0DFB5A0D8E4902F371A289 /* Pods-ScoopLiteIOS.release.xcconfig */;
+			baseConfigurationReference = 4BA5D742EAFFB891FC9005F6 /* Pods-ScoopLiteIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -992,7 +969,7 @@
 		};
 		A365CD6B205096BDF4C337B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F56491DCEA514567F5B736A4 /* Pods-ScoopLiteIOSUITests.release.xcconfig */;
+			baseConfigurationReference = 75956704E514C03D871710AC /* Pods-ScoopLiteIOSUITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScoopLiteIOS/ScoopLiteIOSUITests/Info.plist;

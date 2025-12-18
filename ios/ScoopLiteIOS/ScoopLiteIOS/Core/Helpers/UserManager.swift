@@ -72,12 +72,6 @@ final class UserManager {
         set { UserDefaults.standard.set(newValue, forKey: "type") }
     }
 
-    /// Whether user has completed face liveness verification
-    var livenessVerified: Bool {
-        get { UserDefaults.standard.bool(forKey: "livenessVerified") }
-        set { UserDefaults.standard.set(newValue, forKey: "livenessVerified") }
-    }
-
     /// Cached UserModel (like main app)
     var userModel: UserModel? {
         get {
@@ -132,7 +126,6 @@ final class UserManager {
         profileImage = ""
         type = ""
         userModel = nil
-        livenessVerified = false
     }
 }
 
